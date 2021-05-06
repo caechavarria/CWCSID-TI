@@ -1,0 +1,37 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Add Portgroup with Promiscuous
+      vmware_portgroup:
+        hostname: "10.215.99.55"
+        username: "administrator@vsphere.local"
+        password: "Lab2021*"
+        esxi_hostname: '10.215.99.60'
+        switch_name: "{{ vswitch_name }}"
+        portgroup_name: "{{ portgroup_name }}"
+        vlan_id: "{{ vlan_id }}"
+        validate_certs: False
+       # security:
+        #  promiscuous_mode: False
+        #  mac_changes: False
+        #  forged_transmits: False
+        #traffic_shaping:
+         # enabled: True
+          #average_bandwidth: 100000
+          #peak_bandwidth: 100000
+          #burst_size: 102400
+        #teaming:
+          #load_balancing: failover_explicit 
+          #network_failure_detection: link_status_only
+          #notify_switches: true
+          #failback: true
+          #active_adapters:
+           #- vmnic2
+          #standby_adapters:
+           #- vmnic0
+      delegate_to: 10.215.99.103 
+      #register: teaming_result
