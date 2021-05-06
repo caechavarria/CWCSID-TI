@@ -1,0 +1,61 @@
+---
+########################### TOMA EVIDENCIAS SERVIDORES LINUX ######################
+# Elaborado por: SID - Implementacion
+# Fecha: 19 de Abril de 2021
+# Compañía: WCW
+# Plataforma: Windows
+###################################################################################
+- name: evidencia
+  hosts: LINUX_CURACAO
+
+  tasks:
+    - name: nombre servidor - hostname
+      shell: hostname
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: version y hostname - uname -a
+      shell: uname -a
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: discos df -h
+      shell: df -h
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: discos -Total - lsblk |grep disk
+      shell: lsblk |grep disk
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: Procesadors nproc
+      shell: nproc
+      register: out
+    - debug: var=out.stdout_lines
+       
+    - name: memory - free -m 
+      shell: free -m 
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: Uptime - uptime
+      shell: uptime
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: date - timedatectl
+      shell: timedatectl
+      register: out
+    - debug: var=out.stdout_lines
+    
+
+    - name: Messages Log - tail --lines=20 /var/log/messages
+      shell: tail --lines=20 /var/log/messages
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: Servicio ejecutado - systemctl | grep running
+      shell: systemctl | grep running
+      register: servicio
+    - debug: var=out.stdout_lines

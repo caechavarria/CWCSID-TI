@@ -1,0 +1,54 @@
+---
+########################### TOMA EVIDENCIAS SERVIDORES WINDOWS ######################
+# Elaborado por: SID - Implementacion
+# Fecha: 19 de Abril de 2021
+# Compañía: WCW
+# Plataforma: Windows
+#####################################################################################
+- hosts: all 
+  tasks:
+  - name: Fecha 
+    win_command: cmd.exe /c date /t
+    register: fecha
+  - debug:
+      msg: "FECHA: {{ fecha.stdout }}"
+
+  - name: Hora 
+    win_command: cmd.exe /c time /t
+    register: hora
+  - debug:
+      msg: "HORA: {{ hora.stdout }}"
+      
+  - name: Nombre Host
+    win_command: cmd.exe /c hostname
+    register: hostname
+  - debug:
+      msg: "HOSTNAME: {{ hostname.stdout }}"
+        
+  - name: Direcciones IP
+    win_command: cmd.exe /c ipconfig
+    register: ip
+  - debug: var=ip.stdout_lines
+      
+  - name: Servicios
+    win_command: cmd.exe /c net start
+    register: servicios
+  - debug: var=servicios.stdout_lines
+
+  - name: Archivo Host
+    win_command: cmd.exe /c type hosts
+    args:
+      chdir: C:\Windows\System32\drivers\etc
+    register: hosts
+  - debug: var=hosts.stdout_lines
+      
+  - name: Memoria
+    win_command: cmd.exe /c wmic memorychip get capacity
+    register: Memoria_Bytes
+  - debug: var=Memoria_Bytes.stdout_lines
+  
+  - name: Procesador
+    win_command: cmd.exe /c wmic cpu get deviceid, name, numberofcores, maxclockspeed
+    register: CPU
+  - debug: var=CPU.stdout_lines  
+  
