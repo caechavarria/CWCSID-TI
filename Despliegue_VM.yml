@@ -22,8 +22,8 @@
           num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
           #num_cpu_cores_per_socket: 2                                  # Cantidad de CPUs Cores a asignar
           scsi: paravirtual
-        networks:
-        - name: 'PG50'                                  # Nombre de la Red a asignar
+        networks:   
+        - name: '{{ portgroup_name }}'                                   # Nombre de la Red a asignar
           ip: '{{ IP }}'                                               # Dirección IP a asignar    
           netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
           gateway: '{{ GW }}'                                          # Gateway a asignar
