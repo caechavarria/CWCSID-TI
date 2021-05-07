@@ -29,7 +29,8 @@
           gateway: '{{ GW }}'                                          # Gateway a asignar
           dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
           - 8.8.8.8
-          device_type: vmxnet3                                         # Tipo de Interfaz de Red a asignar
+          device_type: vmxnet3
+          portgroup_name: '{{ portgroup_name }}'                       # Tipo de Interfaz de Red a asignar
           start_connected: True
         state: poweredon                                               # Estado del Servidor luego del despliegue
         wait_for_ip_address: yes
