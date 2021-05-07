@@ -32,7 +32,7 @@
           device_type: vmxnet3                                         # Tipo de Interfaz de Red a asignar
         state: poweredon                                               # Estado del Servidor luego del despliegue
         wait_for_ip_address: yes
-        portgroup_name: '{{ portgroup_name }}'
+        #portgroup_name: '{{ portgroup_name }}'
       delegate_to: localhost
       register: deploy
       with_items:                                                  # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
