@@ -2,6 +2,6 @@
 - hosts: all
   tasks:
   - name: Ejecutar Script en PowerShell
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\admin\Evidencias_windows.ps1
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\admin\evidencias1.ps1
     register: result
-  - debug: var=result.stdout_lines 
+  - debug: var=result.stdout_lines
