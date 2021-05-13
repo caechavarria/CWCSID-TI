@@ -1,10 +1,10 @@
 ---
 - hosts: all
   connection: local
-  collections: community.vmware.vmware_guest_snapshot 
+  collections: community.vmware_guest_snapshot 
   tasks:
     - name: Create a snapshot
-      community.vmware.vmware_guest_snapshot:
+      community.vmware_guest_snapshot:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
