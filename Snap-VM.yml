@@ -1,6 +1,7 @@
 ---
 - hosts: all
   connection: local
+  collections: community.vmware.vmware_guest_snapshot 
   tasks:
     - name: Create a snapshot
       community.vmware.vmware_guest_snapshot:
