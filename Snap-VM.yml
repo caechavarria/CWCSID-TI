@@ -2,8 +2,8 @@
 - hosts: all
   connection: local
   tasks:
-   - name: Create a snapshot
-     community.vmware.vmware_guest_snapshot:
+    - name: Create a snapshot
+      community.vmware.vmware_guest_snapshot:
        hostname: "{{ vcenter_hostname }}"
        username: "{{ vcenter_username }}"
        password: "{{ vcenter_password }}"
@@ -13,9 +13,9 @@
        state: present
        snapshot_name: snap1
        description: snap1_description
-     delegate_to: localhost
-
-   - name: Remove a snapshot
+      delegate_to: localhost
+ 
+    - name: Remove a snapshot
      community.vmware.vmware_guest_snapshot:
        hostname: "{{ vcenter_hostname }}"
        username: "{{ vcenter_username }}"
