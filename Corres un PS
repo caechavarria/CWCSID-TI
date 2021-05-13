@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Run PowerShell Core script
+      command: pwsh C:\vmwscript\GetEvidence\vFinal\GetEvidence.ps
+      ignore_errors: yes
+      changed_when: false
+      register: powershell_output
