@@ -16,7 +16,7 @@
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         datacenter: "{{ datacenter_name }}
-        folder: "/{{ datacenter_name }}/vm/"
+        folder: "{{ datacenter_name }}"
         name: "{{ guest_name }}"
         state: present
         snapshot_name: snap1
