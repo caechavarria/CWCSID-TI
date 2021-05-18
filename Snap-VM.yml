@@ -1,7 +1,7 @@
 ---
 - hosts: all
   connection: local
-  var:
+  vars:
    hostname: 10.215.99.55
    username: administrator@vsphere.local
    password: Lab2021*
@@ -12,12 +12,12 @@
   tasks:
     - name: Create a snapshot
       vmware_guest_snapshot:
-       # hostname: "{{ vcenter_hostname }}"
-       # username: "{{ vcenter_username }}"
-       # password: "{{ vcenter_password }}"
-       # datacenter: "{{ datacenter_name }}"
-       # folder: "{{ datacenter_name }}"
-       # name: "{{ guest_name }}"
+        hostname: "{{ hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        datacenter: "{{ datacenter }}"
+        folder: "{{ datacenter_name }}"
+        name: "{{ guest_name }}"
         state: present
         snapshot_name: snap1
         description: snap1_description
