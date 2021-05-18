@@ -25,11 +25,11 @@
  
     - name: Remove a snapshot
       vmware_guest_snapshot:
-        hostname: "{{ vcenter_hostname }}"
-        username: "{{ vcenter_username }}"
-        password: "{{ vcenter_password }}"
-        datacenter: "{{ datacenter_name }}"
-        folder: "/{{ datacenter_name }}/vm/"
+        hostname: "{{ hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        datacenter: "{{ datacenter }}"
+        folder: "{{ datacenter_name }}"
         name: "{{ guest_name }}"
         state: absent
         snapshot_name: snap1
