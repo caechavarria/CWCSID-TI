@@ -21,7 +21,7 @@
            state: present
            snapshot_name: snap1
            description: snap1_description
-       delegate_to: localhost
+      delegate_to: 10.215.99.103
  
     - name: Remove a snapshot
       community.vmware.vmware_guest_snapshot:
