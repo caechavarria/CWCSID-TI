@@ -49,7 +49,6 @@
       register: out
     - debug: var=out.stdout_lines
     
-
     - name: Messages Log - tail --lines=20 /var/log/messages
       shell: tail --lines=20 /var/log/messages
       register: out
@@ -59,3 +58,15 @@
       shell: systemctl | grep running
       register: servicio
     - debug: var=out.stdout_lines
+
+    - name: Susbsicripcion - subscription-manager list
+      shell: subscription-manager list
+      register: out
+    - debug: var=out.stdout_lines
+
+    - name: Ultimas actulizaciones - yum history
+      shell: yum history
+      register: out
+    - debug: var=out.stdout_lines   
+...
+    
