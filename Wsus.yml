@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   - name: Create registry path MyCompany
-    ansible.windows.win_regedit:
+    win_regedit:
       path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
       name: WUServer
       data: https://colwsus.cbs-cloud.com:8531
