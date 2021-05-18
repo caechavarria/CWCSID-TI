@@ -1,13 +1,12 @@
 ---
 - hosts: all
   connection: local
-  var:
-    hostname: 10.215.99.55
-    username: administrator@vsphere.local
-    password: Lab2021*
-    datacenter: CURANSIBLEDCLAB01
-    folder: /VMs-Windows/
-    guest_name: Windows1
+  hostname: 10.215.99.55
+  username: administrator@vsphere.local
+  password: Lab2021*
+  datacenter: CURANSIBLEDCLAB01
+  folder: /VMs-Windows/
+  guest_name: Windows1
   collections: community.vmware_guest_snapshot 
   tasks:
     - name: Create a snapshot
