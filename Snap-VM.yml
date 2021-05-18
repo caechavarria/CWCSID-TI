@@ -7,7 +7,7 @@
     password: Lab2021*
     datacenter: CURANSIBLEDCLAB01
     folder: /VMs-Windows/
-    name: Windows1
+    guest_name: Windows1
   collections: community.vmware_guest_snapshot 
   tasks:
     - name: Create a snapshot
