@@ -7,7 +7,7 @@
       name: WUServer
       data: https://colwsus.cbs-cloud.com:8531
     win_regedit:  
-	    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
+      path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
       name: WUStatusServer
       data: https://colwsus.cbs-cloud.com:8531      
 ...
