@@ -2,15 +2,16 @@
 - hosts: all
   connection: local
   tasks:
-    - vmware_guest: 
-        hostname: 10.215.99.55
-        username: administrator@vsphere.local
-        password: Lab2021*
-        datacenter: CURANSIBLEDCLAB01
-        folder: /VMs-Windows/
-        name: Windows1
-        state: present
-        snapshot_name: snap1
-        description: snap1_description
-      delegate_to: localhost
+  - name: snpa
+    community.vmware.vmware_guest_snapshot: 
+      hostname: 10.215.99.55
+      username: administrator@vsphere.local
+      password: Lab2021*
+      datacenter: CURANSIBLEDCLAB01
+      folder: /VMs-Windows/
+      name: Windows1
+      state: present
+      snapshot_name: snap1
+      description: snap1_description
+    delegate_to: localhost
 ...
