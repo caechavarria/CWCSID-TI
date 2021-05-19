@@ -3,7 +3,7 @@
   connection: local
   tasks:
   - name: snpa
-    community.vmware.vmware_guest_snapshot: 
+    vmware_guest_snapshot: 
       hostname: 10.215.99.55
       username: administrator@vsphere.local
       password: Lab2021*
