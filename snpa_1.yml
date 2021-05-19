@@ -5,7 +5,7 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - community.vmware.vmware_guest: 
+    - vmware_guest: 
         hostname: 10.215.99.55
         username: administrator@vsphere.local
         password: Lab2021*
