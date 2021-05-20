@@ -1,3 +1,5 @@
+---
+- hosts: all 
 - name: Create new VM - {{ vm_name }}
   vmware_guest:
       hostname: "{{ vcenter_hostname }}"
