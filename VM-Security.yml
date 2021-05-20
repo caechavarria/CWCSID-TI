@@ -1,40 +1,37 @@
 ---
 - hosts: all
   connection: local
-  vars:
-   hostname: 10.215.99.55
-   username: administrator@vsphere.local
-   password: Lab2021*
-   datacenter: CURANSIBLEDCLAB01
-   folder: /VMs-Windows/
-   guest_name: Windows1
-  collections: community.vmware_guest_snapshot  
-- name: Create new VM - {{ vm_name }}
-  vmware_guest:
-      hostname: "{{ vcenter_hostname }}"
-      username: "{{ vcenter_username }}"
-      password: "{{ vcenter_password }}"
-      datacenter: "{{ vm_datacenter }}"
-      cluster: "{{ vm_cluster }}"
-      validate_certs: no
-      folder: "{{ vm_folder }}"
-      name: "{{ vm_name }}" 
-      state: poweredoff
-      guest_id: rhel7_64Guest
-      datastore: "{{ vm_datastore }}"
-      disk:
-        - size_gb: 10
-      hardware:
-          memory_mb: "{{ vm_mem }}"
-          memory_reservation: "{{ (vm_mem / 2) | int }}"
-          num_cpus: "{{ vm_cpu }}"
-          cpu_reservation: "{{ (vm_cpu * 256) | int }}"
+  tasks:
+    - vmware_guest:
+        hostname: 10.215.99.55                                         # IP del vCenter
+        username: 'administrator@vsphere.local'                        # Usuario de vCenter
+        password: 'Lab2021*'                                           # Password de vCenter
+        validate_certs: False
+        name: "{{ HOSTNAME }}{{ item }}"                                    # Nombre como se visualizará en el vCenter
+        template: 'TEMPLETE_WINDOWS'                                   # Nombre de la Plantilla en el vCenter
+        datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
+        cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
+        folder: '/VMs-Windows'                                            # Nombre del folder donde se va a desplegar
+        annotation: 'Servidor desplegado desde Ansible AWX'            # Nota que se quiera colocar en el Servidor desplegado
+        disk:
+        - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco
+          type: thin                                                   # Formato del disco thin, thick o eagerzeroedthick 
+          datastore: 'Management'                                      # Nombre del Datastore donde se va a desplegar
+        hardware:
+          memory_mb: '{{ RAM }}'                                       # Cantidad de Memoria RAM a asignar
+          num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
+          #num_cpu_cores_per_socket: 2                                  # Cantidad de CPUs Cores a asignar
           scsi: paravirtual
-          boot_firmware: efi
-      networks:
-        - name: "{{ vm_network }}"
-          device_type: vmxnet3
-      customvalues:
+        networks:   
+        - name: '{{ portgroup_name }}'                                   # Nombre de la Red a asignar
+          ip: '{{ IP }}'                                               # Dirección IP a asignar    
+          netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
+          gateway: '{{ GW }}'                                          # Gateway a asignar
+          dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
+          - 8.8.8.8
+          device_type: vmxnet3                                          #Tipo de Interfaz de Red a asignar
+          start_connected: True
+        customvalues:
         - key: "RemoteDisplay.maxConnections" 
           value: "3"
         - key: "isolation.tools.copy.disable"
@@ -45,7 +42,7 @@
           value: "True"
         - key: "isolation.tools.diskWiper.disable"
           value: "True"
-        - key: "mks.enable3d"
+        - key: "mks.enabled"
           value: "False"
         - key: "tools.setInfo.sizeLimit"
           value: "1048576"
@@ -79,5 +76,10 @@
           value: "False"
         - key: "snapshot.redoNotWithParent"
           value: "True"
-      wait_for_ip_address: no
-  register: vm_deploy
+        state: poweredon                                               # Estado del Servidor luego del despliegue
+        wait_for_ip_address: yes        
+      delegate_to: localhost
+      register: deploy
+      with_items:                                                      # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
+         -1
+...       
