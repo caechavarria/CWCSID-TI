@@ -36,7 +36,7 @@
           value: "True"
         - key: "mks.enable3d"
           value: "False"
-        - key: "tools.setInfo.sizeLimit
+        - key: "tools.setInfo.sizeLimit"
           value: "1048576"
         - key: "RemoteDisplay.vnc.enabled"
           value: "False"
