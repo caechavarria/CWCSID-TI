@@ -2,36 +2,44 @@
 - hosts: all
   connection: local
   tasks:
-   #- name: Create VM1
-     vmware_guest:
+    - vmware_guest:
         hostname: 10.215.99.55                                         # IP del vCenter
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'                                           # Password de vCenter
         validate_certs: False
-        name: "windows2"                               # Nombre como se visualizará en el vCenter
+        name: "{{ HOSTNAME }}{{ item }}"                                    # Nombre como se visualizará en el vCenter
         template: 'TEMPLETE_WINDOWS'                                   # Nombre de la Plantilla en el vCenter
         datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
         folder: '/VMs-Windows'                                            # Nombre del folder donde se va a desplegar
         annotation: 'Servidor desplegado desde Ansible AWX'            # Nota que se quiera colocar en el Servidor desplegado
         disk:
-        - size_gb: '20'                                        # Tamaño a asignar al disco
+        - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco
           type: thin                                                   # Formato del disco thin, thick o eagerzeroedthick 
           datastore: 'Management'                                      # Nombre del Datastore donde se va a desplegar
         hardware:
-          memory_mb: '2048'                                       # Cantidad de Memoria RAM a asignar
-          num_cpus: '2'                                        # Cantidad de CPUs a asignar
+          memory_mb: '{{ RAM }}'                                       # Cantidad de Memoria RAM a asignar
+          num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
           #num_cpu_cores_per_socket: 2                                  # Cantidad de CPUs Cores a asignar
           scsi: paravirtual
         networks:   
-        - name: 'PG50'                                   # Nombre de la Red a asignar
-          ip: '10.215.99.105'                                               # Dirección IP a asignar    
-          netmask: '255.255.255.0'                                        # Mascara de Red a asignar
-          gateway: '10.215.99.254'                                          # Gateway a asignar
+        - name: '{{ portgroup_name }}'                                   # Nombre de la Red a asignar
+          ip: '{{ IP }}'                                               # Dirección IP a asignar    
+          netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
+          gateway: '{{ GW }}'                                          # Gateway a asignar
           dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
           - 8.8.8.8
           device_type: vmxnet3                                          #Tipo de Interfaz de Red a asignar
-          start_connected: True   
+          start_connected: True
+        customvalues:
+          - key: "RemoteDisplay.maxConnections" 
+            value: "3"
+        state: poweredon                                               # Estado del Servidor luego del despliegue
+        wait_for_ip_address: yes        
+      delegate_to: localhost
+      register: deploy
+      with_items:                                                      # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
+         - 1
        # customvalues:
         # - key: "RemoteDisplay.maxConnections" 
         #    value: "3"
@@ -77,9 +85,4 @@
         #   value: "False"
         # - key: "snapshot.redoNotWithParent"
         #   value: "True"
-        wait_for_ip_address: no
-        state: poweredon
-     delegate_to: localhost
-     register: vm_deploy
-     with_items:                                                      # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
-         - 1 
+        
