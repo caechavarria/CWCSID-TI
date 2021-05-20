@@ -24,7 +24,7 @@
         - name: "{{ vm_network }}"
           device_type: vmxnet3
       customvalues:
-        - key: "RemoteDisplay.maxconnections"
+        - key: "RemoteDisplay.maxConnections"
 	  value: "False"
 	- key: "isolation.tools.copy.disable"
           value: "True"
