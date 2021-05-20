@@ -2,7 +2,8 @@
 - hosts: all
   connection: local
   tasks:
-    - vmware_guest:
+  - name: Create VM
+    vmware_guest:
         hostname: 10.215.99.55                                         # IP del vCenter
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'                                           # Password de vCenter
