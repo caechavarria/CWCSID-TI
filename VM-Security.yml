@@ -25,7 +25,7 @@
           device_type: vmxnet3
       customvalues:
         - key: "RemoteDisplay.maxConnections"
-	  value: "False"
+	  value: "3"
 	- key: "isolation.tools.copy.disable"
           value: "True"
         - key: "isolation.tools.paste.disable"
