@@ -2,13 +2,13 @@
 - hosts: all
   connection: local
   tasks:
-  - name: Create VM1
-    vmware_guest:
+   - name: Create VM1
+     vmware_guest:
         hostname: 10.215.99.55                                         # IP del vCenter
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'                                           # Password de vCenter
         validate_certs: False
-        name: "{{ HOSTNAME }}{{ item }}"                                    # Nombre como se visualizará en el vCenter
+        name: "{{ HOSTNAME }}{{ item }}"                               # Nombre como se visualizará en el vCenter
         template: 'TEMPLETE_WINDOWS'                                   # Nombre de la Plantilla en el vCenter
         datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
