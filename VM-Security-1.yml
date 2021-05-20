@@ -41,7 +41,7 @@
           - key: "isolation.tools.diskShrink.disable"
             value: "True"
           - key: "isolation.tools.diskWiper.disable"
-             value: "True"
+            value: "True"
         state: poweredon                                               # Estado del Servidor luego del despliegue
         wait_for_ip_address: yes        
       delegate_to: localhost
