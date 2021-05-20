@@ -79,7 +79,7 @@
         #   value: "True"
         wait_for_ip_address: no
         state: poweredon
-      delegate_to: localhost
-      register: vm_deploy
-      with_items:                                                      # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
+     delegate_to: localhost
+     register: vm_deploy
+     with_items:                                                      # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
          - 1 
