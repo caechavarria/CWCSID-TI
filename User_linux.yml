@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+   - name: Add a user linux
+     user:
+       name: AWX
+       passsword: Colombia123
+       shell: /bin/bash
+...
