@@ -4,6 +4,6 @@
    - name: Add a user linux
      user:
        name: AWX
-       password: "{{ Colombia2021* | password_hash('sha512') }}"
+       password: "{{ 'Colombia2021*' | password_hash('sha512') }}"
        shell: /bin/bash
 ...
