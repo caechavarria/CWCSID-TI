@@ -4,6 +4,6 @@
    - name: Add a user linux
      user:
        name: AWX
-       passsword: Colombia123
+       password: Colombia123
        shell: /bin/bash
 ...
