@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   tasks:
    - name: powershell linux
      shell: powershell.exe /tmp/evidencias.ps1 
