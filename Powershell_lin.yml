@@ -3,6 +3,8 @@
   tasks:
    - name: powershell linux
      shell: powershell.exe /tmp/evidencias.ps1 
+     args:
+      executable: /usr/bin/pwsh
      register: result
    - debug: var=result.stdout_line 
 ...
