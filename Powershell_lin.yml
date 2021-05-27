@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
    - name: powershell linux
-     shell: powershell.exe /tmp/evidencias.ps1 
+     shell: powershell /tmp/evidencias.ps1 
      args:
       executable: /usr/bin/pwsh
      register: result
