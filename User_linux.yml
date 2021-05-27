@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    host_key_checking : false
+    host_key_checking: false
   tasks:
    - name: Add a user linux
      user:
