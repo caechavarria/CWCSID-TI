@@ -10,7 +10,7 @@
       validate_certs: False
       datacenter: CURANSIBLEDCLAB01
       folder: /VMs-Windows/
-      name: Windows1
+      name: Windows01-1
       state: present
       snapshot_name: snap1
       description: snap1_description
