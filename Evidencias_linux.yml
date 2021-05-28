@@ -13,11 +13,6 @@
       shell: hostname
       register: out
     - debug: var=out.stdout_lines
-            
-    - name: Ultimas actulizaciones - yum history
-      shell: yum history
-      register: out
-    - debug: var=out.stdout_lines
 
     - name: version y hostname - uname -a
       shell: uname -a
@@ -51,6 +46,11 @@
 
     - name: date - timedatectl
       shell: timedatectl
+      register: out
+    - debug: var=out.stdout_lines
+                    
+    - name: Ultimas actulizaciones - yum history
+      shell: yum history
       register: out
     - debug: var=out.stdout_lines
     
