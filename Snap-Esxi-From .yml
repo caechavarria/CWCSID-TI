@@ -8,5 +8,5 @@
   tasks:
   - name: create snap from esxi
     vmware_guest_screenshot
-    command: vim-cmd vmsvc/snapshot.create 120
+    shell: vim-cmd vmsvc/snapshot.create 120
 ...
