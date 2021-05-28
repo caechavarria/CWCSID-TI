@@ -6,7 +6,7 @@
   validate_certs: false
   remote_user: root
   tasks:
-  - name create snap from esxi
+  - name: create snap from esxi
     community.vmware.vmware.hosts
     command: vim-cmd vmsvc/snapshot.create 120
 ...
