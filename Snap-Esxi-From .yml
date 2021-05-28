@@ -1,12 +1,12 @@
 ---
 - hosts: all
-  hostname: 10.215.99.60
-  username: root
-  password: Lab2021*
   validate_certs: false
   remote_user: root
   tasks:
   - name: create snap from esxi
     vmware_guest_screenshot:
+      hostname: 10.215.99.60
+      username: root
+      password: Lab2021*
     shell: vim-cmd vmsvc/snapshot.create 120
 ...
