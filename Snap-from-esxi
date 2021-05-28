@@ -7,7 +7,6 @@
   validate_certs: False  
   tasks:
     - name:  Esxi snap VM 
-        command:
-		  vim-cmd vmsvc/snapshot.create 120
+        command: vim-cmd vmsvc/snapshot.create 120
         
        
