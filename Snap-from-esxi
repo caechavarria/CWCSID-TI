@@ -8,5 +8,4 @@
   tasks:
     - name:  Esxi snap VM 
         command: vim-cmd vmsvc/snapshot.create 120
-        
-       
+...
