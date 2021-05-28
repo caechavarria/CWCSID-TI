@@ -8,5 +8,5 @@
       hostname: 10.215.99.60
       username: root
       password: Lab2021*
-    shell: vim-cmd vmsvc/snapshot.create 120
+      shell: vim-cmd vmsvc/snapshot.create 120
 ...
