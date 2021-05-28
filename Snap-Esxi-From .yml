@@ -7,6 +7,6 @@
   remote_user: root
   tasks:
   - name: create snap from esxi
-    community.vmware.vmware.hosts
+    vmware_guest_screenshot
     command: vim-cmd vmsvc/snapshot.create 120
 ...
