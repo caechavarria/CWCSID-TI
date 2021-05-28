@@ -10,9 +10,23 @@
       validate_certs: False
       datacenter: CURANSIBLEDCLAB01
       folder: /VMs-Windows/
-      name: Windows01-1
+      name: pruebaVMlinux-1
       state: present
       snapshot_name: snap1
       description: snap1_description
     delegate_to: localhost
+  - name: Remove snpa
+    vmware_guest_snapshot: 
+      hostname: 10.215.99.55
+      username: administrator@vsphere.local
+      password: Lab2021*
+      validate_certs: False
+      datacenter: CURANSIBLEDCLAB01
+      folder: /VMs-Windows/
+      name: pruebaVMlinux-1
+      state: absent
+      snapshot_name: snap1
+      description: snap1_description
+    delegate_to: localhost
 ...
+	
