@@ -1,11 +1,12 @@
 ---
 - hosts: all
+  gather_facts: false
   connection: local
   hostname: 10.215.99.60                                         # IP del vCenter
   username: 'root'                        # Usuario de vCente
   password: 'Lab2021*'                                           # Password de vCenter
   validate_certs: False 
-  remote_user: root
+  remote_user: root 
   tasks:
-  - name: Crear vSnap from Esxi
-    command: vim-cmd vmsvc/snapshot.create 120
+    - name: Crear vSnap from Esxi
+       command: vim-cmd vmsvc/snapshot.create 120
