@@ -4,7 +4,7 @@
   remote_user: root
   tasks:
   - name: create snap from esxi
-    community.vmware.vmware_host_service_facts:
+    community.vmware.vmware_host:
       hostname: 10.215.99.60
       username: root
       password: Lab2021*
