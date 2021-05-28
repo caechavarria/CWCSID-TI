@@ -8,5 +8,5 @@
   validate_certs: False 
   remote_user: root 
   tasks:
-    - name: Crear vSnap from Esxi
-       command: vim-cmd vmsvc/snapshot.create 120
+  - name: Crear vSnap from Esxi
+    command: vim-cmd vmsvc/snapshot.create 120
