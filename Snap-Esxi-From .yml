@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  validate_certs: false
+  validate_certs: true
   remote_user: root
   tasks:
   - name: create snap from esxi
