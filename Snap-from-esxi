@@ -9,5 +9,5 @@
   remote_user: root 
   tasks:
   - name: Crear vSnap from Esxi
-    community.vmware.vmware_host:
-    command: vim-cmd vmsvc/snapshot.create 120
+    community.vmware.vmware_host_service_manager:
+    Shell: vim-cmd vmsvc/snapshot.create 120
