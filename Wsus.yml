@@ -1,7 +1,6 @@
 ---
 - hosts: all
   tasks:
-  - name: Create registry path MyCompany
     win_regedit:
       path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
       name: WUServer
