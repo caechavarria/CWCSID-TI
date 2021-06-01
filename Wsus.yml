@@ -31,14 +31,14 @@
       type: dword
   - name: Create registry path MyCompany
     win_regedit:
-        win_regedit:
+      win_regedit:
       path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
       name: DetectionFrequency
       data: 16
       type: dword
   - name: Create registry path MyCompany  	
-	  win_regedit:
-	    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
+      win_regedit:
+      path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
       data: 1
       type: dword
   - name: Create registry path MyCompany  
