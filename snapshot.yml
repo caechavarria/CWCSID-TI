@@ -23,7 +23,7 @@
       validate_certs: False
       datacenter: CURANSIBLEDCLAB01
       folder: /VMs-Windows/
-      name: pruebaVMlinux-1
+      name: "{{ item }}"
       state: absent
       snapshot_name: snap1
       description: snap1_description
