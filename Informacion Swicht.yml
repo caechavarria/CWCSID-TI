@@ -4,10 +4,10 @@
   tasks:
     - name: Gather vswitch info about all ESXi Host in given Cluster
       vmware_vswitch_info:
-	    hostname: 10.215.99.55
-		username: administrator@vsphere.local
-		password: Lab2021*
-		cluster_name: Cluster_ansible
-		delegate_to: localhost
-	  register: all_hosts_vswitch_info
+        hostname: 10.215.99.55
+        username: administrator@vsphere.local
+        password: Lab2021*
+        cluster_name: Cluster_ansible
+        delegate_to: localhost
+      register: all_hosts_vswitch_info
 ...
