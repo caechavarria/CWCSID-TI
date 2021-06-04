@@ -13,7 +13,7 @@
        headers:
           Cookie: "{{ login.set_cookie }}"
       register: vnetworks
-   - name: Print names of networks in the given vCenter
-      debug:
-        msg: "{{ item.name }}"
-      with_items: "{{ vnetworks.json.value }}"
+  # - name: Print names of networks in the given vCenter
+   #   debug:
+   #     msg: "{{ item.name }}"
+    #  with_items: "{{ vnetworks.json.value }}"
