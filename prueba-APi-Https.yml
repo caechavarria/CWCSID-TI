@@ -18,5 +18,5 @@
       register: vnetworks
    - name: Print names of networks in the given vCenter
      debug:
-       msg: "{{ item.name }}"
-     with_items: "{{ vnetworks.json.value }}"
+       #msg: "{{ item.name }}"
+     #with_items: "{{ vnetworks.json.value }}"
