@@ -9,7 +9,7 @@
       uri:
         url: https://10.215.99.55/rest/vcenter/network
         force_basic_auth: yes
-        validate_certs: "{{ validate_certs }}"
+        #validate_certs: "{{ validate_certs }}"
         headers:
           Cookie: "{{ login.set_cookie }}"
       register: vnetworks
