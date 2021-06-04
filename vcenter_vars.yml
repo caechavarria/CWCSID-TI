@@ -4,11 +4,11 @@
 - debug_flag: no
 
 # vCenter related details
-- vcenter_server: 10.65.223.114
+- vcenter_server: 10.215.99.55
 - vcenter_user: administrator@vsphere.local
-- vcenter_pass: Esxi@123$%
+- vcenter_pass: Lab2021*
 
 # VMware object related details
-- datacenter: DC0
-- cluster_name: DC0_C1
-- vm_name: rhel_7_template
+- datacenter: CURANSIBLEDCLAB01
+- cluster_name: Cluster_Ansible
+- vm_name: curvclab01
