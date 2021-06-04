@@ -1,5 +1,9 @@
 ---
 - hosts: all
+  hostname: 10.215.99.55                                         # IP del vCenter
+  username: 'administrator@vsphere.local'                        # Usuario de vCenter
+  password: 'Lab2021*'                                           # Password de vCenter
+  validate_certs: False                                          # valodacion certificado  
   connection: local
   gather_facts: false
   vars:
