@@ -1,11 +1,18 @@
 ---
-- name: Login into vCenter
-  uri:
-    url: https://{{ vcenter_server }}/rest/com/vmware/cis/session
-    force_basic_auth: yes
-    validate_certs: "{{ validate_certs }}"
-    method: POST
-    user: "{{ vcenter_user }}"
-    password: "{{ vcenter_pass }}"
-  register: login
-...
+- name: Example showing VMware HTTP API utilization
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - vcenter_vars.yml
+  vars:
+    ansible_python_interpreter: "/usr/bin/env python3"
+  tasks:
+    - name: Login into vCenter and get cookies
+      uri:
+        url: https://{{ vcenter_server }}/rest/com/vmware/cis/session
+        force_basic_auth: yes
+        validate_certs: no
+        method: POST
+        user: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+      register: login
