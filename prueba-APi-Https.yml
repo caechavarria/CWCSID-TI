@@ -1,24 +1,19 @@
 ---
 - hosts: all
-  hostname: 10.215.99.55                                         # IP del vCenter
-  username: 'administrator@vsphere.local'                        # Usuario de vCenter
-  password: 'Lab2021*'                                           # Password de vCenter
-  validate_certs: False                                          # valodacion certificado  
   connection: local
   gather_facts: false
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - name: Get networks from vCenter
+    - name: "Get networks from vCenter"
       uri:
-        url: https://10.215.99.55/rest/vcenter/network
-        force_basic_auth: yes
-        #validate_certs: "{{ validate_certs }}"
-        headers:
+       url: https://10.215.99.55/rest/vcenter/network
+       force_basic_auth: yes
+       #validate_certs: "{{ validate_certs }}"
+       headers:
           Cookie: "{{ login.set_cookie }}"
       register: vnetworks
-
-    - name: Print names of networks in the given vCenter
+   - name: Print names of networks in the given vCenter
       debug:
         msg: "{{ item.name }}"
       with_items: "{{ vnetworks.json.value }}"
