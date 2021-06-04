@@ -4,6 +4,9 @@
   gather_facts: false
   vars:
     ansible_python_interpreter: /usr/bin/python3
+    hostname: 10.215.99.55
+    username: administrator@vsphere.local
+    password: Lab2021*
   tasks:
     - name: "Get networks from vCenter"
       uri:
