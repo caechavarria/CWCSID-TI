@@ -1,5 +1,7 @@
 ---
 - name: Gather all networks for vCenter
+  hosts: all
+  connection: local 
   gather_facts: no
   vars_files:
     - vcenter_vars.yml
