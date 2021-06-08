@@ -3,7 +3,7 @@
 # Elaborado por: SID - Implementacion
 # Fecha: 19 de Abril de 2021
 # Compañía: WCW
-# Plataforma: Windows
+# Plataforma: LINUX
 ###################################################################################
 - name: evidencia
   hosts: LINUX_CURACAO
