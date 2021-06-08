@@ -9,57 +9,57 @@
   hosts: LINUX_CURACAO
   tasks:
     - name: nombre servidor - hostname
-      shell: hostname > /tmp/reporter.txt
+      shell: hostname > /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: version y hostname - uname -a
-      shell: uname -a >> /tmp/reporter.txt
+      shell: uname -a >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: discos df -h
-      shell: df -h >> /tmp/reporter.txt
+      shell: df -h >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: discos -Total - lsblk |grep disk
-      shell: lsblk |grep disk >> /tmp/reporter.txt
+      shell: lsblk |grep disk >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Procesadors nproc
-      shell: nproc >> /tmp/reporter.txt
+      shell: nproc >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
        
     - name: memory - free -m 
-      shell: free -m >> /tmp/reporter.txt
+      shell: free -m >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Uptime - uptime
-      shell: uptime >> /tmp/reporter.txt
+      shell: uptime >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: date - timedatectl
-      shell: timedatectl >> /tmp/reporter.txt
+      shell: timedatectl >> /tmp/Evidencias.txt
       register: out 
     - debug: var=out.stdout_lines
                     
     - name: Ultimas actulizaciones - yum history
-      shell: yum history >> /tmp/reporter.txt
+      shell: yum history >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Messages Log - tail --lines=20 /var/log/messages
-      shell: tail --lines=20 /var/log/messages >> /tmp/reporter.txt
+      shell: tail --lines=20 /var/log/messages >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Servicio ejecutado - systemctl | grep running
-      shell: systemctl | grep running >> /tmp/reporter.txt
+      shell: systemctl | grep running >> /tmp/Evidencias.txt
       register: servicio
     - debug: var=out.stdout_lines
 
