@@ -19,7 +19,7 @@
           datastore: 'Management'                                      # Nombre del Datastore donde se va a desplegar
         hardware:
           memory_mb: '{{ RAM | int * 1024 }}                           # Cantidad de Memoria RAM a asignar
-          num_cpus: '{{ CPU }jajaja}'                                        # Cantidad de CPUs a asignar
+          num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
           scsi: paravirtual
         networks:   
         - name: '{{ portgroup_name }}'                                 # Nombre de la Red a asignar
