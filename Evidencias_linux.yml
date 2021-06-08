@@ -54,7 +54,7 @@
     - debug: var=out.stdout_lines
     
     - name: Messages Log - tail --lines=20 /var/log/messages
-      shell: tail --lines=20 /var/log/messages
+      shell: tail --lines=20 /var/log/messages >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
     
