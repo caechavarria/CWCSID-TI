@@ -9,47 +9,47 @@
   hosts: LINUX_CURACAO
   tasks:
     - name: nombre servidor - hostname
-      shell: hostname
+      shell: hostname > /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: version y hostname - uname -a
-      shell: uname -a
+      shell: uname -a >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: discos df -h
-      shell: df -h
+      shell: df -h >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: discos -Total - lsblk |grep disk
-      shell: lsblk |grep disk
+      shell: lsblk |grep disk >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Procesadors nproc
-      shell: nproc
+      shell: nproc >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
        
     - name: memory - free -m 
-      shell: free -m 
+      shell: free -m >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Uptime - uptime
-      shell: uptime
+      shell: uptime >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: date - timedatectl
-      shell: timedatectl
-      register: out
+      shell: timedatectl >> /tmp/reporter.txt
+      register: out 
     - debug: var=out.stdout_lines
                     
     - name: Ultimas actulizaciones - yum history
-      shell: yum history
+      shell: yum history >> /tmp/reporter.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -59,7 +59,7 @@
     - debug: var=out.stdout_lines
     
     - name: Servicio ejecutado - systemctl | grep running
-      shell: systemctl | grep running
+      shell: systemctl | grep running >> /tmp/reporter.txt
       register: servicio
     - debug: var=out.stdout_lines
 
