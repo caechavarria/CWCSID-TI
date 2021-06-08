@@ -11,7 +11,7 @@
         template: '{{ SO }}'                                           # Nombre de la Plantilla en el vCenter
         datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
-        folder: '{{ /CARPETA }}'                                           # Nombre del folder donde se va a desplegar
+        folder: '{{ CARPETA }}'                                           # Nombre del folder donde se va a desplegar
         annotation: 'Servidor desplegado desde Ansible AWX'            # Nota que se quiera colocar en el Servidor desplegado
         disk:
         - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco
