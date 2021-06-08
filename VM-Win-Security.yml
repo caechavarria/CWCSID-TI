@@ -23,7 +23,7 @@
           scsi: paravirtual
         networks:   
         - name: '{{ portgroup_name }}'                                 # Nombre de la Red a asignar
-          ip: '{{ IP }}'                                               # Dirección IP a asignar    
+          ip: '{{ IP }}'                                                # Dirección IP a asignar    
           netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
           gateway: '{{ GW }}'                                          # Gateway a asignar
           dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
