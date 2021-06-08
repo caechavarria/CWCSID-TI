@@ -18,7 +18,7 @@
           type: thin                                                   # Formato del disco thin, thick o eagerzeroedthick 
           datastore: 'Management'                                      # Nombre del Datastore donde se va a desplegar
         hardware:
-          memory_mb: '{{ memory | int * 1024 }}'                         # Cantidad de Memoria RAM a asignar
+          memory_mb: '{{ RAM | int * 1024 }}'                         # Cantidad de Memoria RAM a asignar
           num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
           #num_cpu_cores_per_socket: 2                                  # Cantidad de CPUs Cores a asignar
           scsi: paravirtual
