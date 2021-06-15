@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+  - name: Ejecutar Evidencias de Vmware
+    win_command: powershell.exe -ExecutionPolicy ByPass -File /etc/ansible/
+    register: result
+  - debug: var=result.stdout_lines
