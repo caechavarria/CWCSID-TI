@@ -11,4 +11,5 @@
         cluster_name: Cluster_ansible
       delegate_to: localhost
       register: all_hosts_vswitch_info
+    - debug: var=out.stdout_lines 
 ...
