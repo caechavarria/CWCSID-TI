@@ -7,6 +7,7 @@
         hostname: 10.215.99.55
         username: administrator@vsphere.local
         password: Lab2021*
+        validate_certs: False
         cluster_name: Cluster_ansible
       delegate_to: localhost
       register: all_hosts_vswitch_info
