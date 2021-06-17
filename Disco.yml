@@ -16,6 +16,6 @@
             type: thin
             state: present
             scsi_controller: '0'
-            unit_number: '1'
+            unit_number: '2'
             scsi_type: 'paravirtual'
             datastore: 'Management'
