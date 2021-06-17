@@ -15,7 +15,7 @@
           - size_gb: "{{ Tamaño }}"
             type: thin
             state: present
-            scsi_controller: "{{ scsi_controller }}"
+            scsi_controller: '1'
             unit_number: '1'
             scsi_type: 'paravirtual'
             datastore: 'Management'
