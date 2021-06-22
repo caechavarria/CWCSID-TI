@@ -15,24 +15,26 @@
     - debug: var=out.stdout_lines     
       
     - name: version y hostname - uname -a
-      shell: echo "####KERNEL####" >> /tmp/Evidencias.txt
       shell: uname -a >> /tmp/Evidencias.txt
+      shell: echo "####KERNEL####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: discos df -h
-      shell: echo "####DISCOS####" >> /tmp/Evidencias.txt 
       shell: df -h >> /tmp/Evidencias.txt
+      shell: echo "####DISCO DF ####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: discos -Total - lsblk |grep disk
       shell: lsblk |grep disk >> /tmp/Evidencias.txt
+      shell: echo "####DISCO LSBLK####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Procesadors nproc
       shell: nproc >> /tmp/Evidencias.txt
+      shell: echo "####PROCESADOR ####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
        
