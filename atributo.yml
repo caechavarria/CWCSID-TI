@@ -7,7 +7,7 @@
       hostname: 10.215.99.55                                         # IP del vCenter
       username: 'administrator@vsphere.local'                        # Usuario de vCenter
       password: 'Lab2021*'     
-      state: present
+      vm_name: 'lini1' 
       attributes:
       - name: MyAttribute
         value: MyValue
