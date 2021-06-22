@@ -12,8 +12,7 @@
       shell: echo "####hostname####" > /tmp/Evidencias.txt
       shell: hostname >> /tmp/Evidencias.txt
       register: out
-    - debug: var=out.stdout_lines
-      shell: echo "####hostname####" >> /tmp/Evidencias.txt
+    - debug: var=out.stdout_lines     
       
     - name: version y hostname - uname -a
       shell: uname -a >> /tmp/Evidencias.txt
