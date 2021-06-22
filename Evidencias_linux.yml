@@ -34,7 +34,7 @@
     
     - name: Procesadors nproc
       shell: nproc >> /tmp/Evidencias.txt
-      shell: echo "####PROCESADOR ####" >> /tmp/Evidencias.txt
+      shell: echo "####PROCESADOR####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
        
