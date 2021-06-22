@@ -10,16 +10,18 @@
   tasks:
     - name: nombre servidor - hostname
       shell: hostname > /tmp/Evidencias.txt
-      shell: echo "####hostname####" >> /tmp/Evidencias.txt
+      shell: echo "####NOMBRE####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines     
       
     - name: version y hostname - uname -a
+      shell: echo "####KERNEL####" >> /tmp/Evidencias.txt
       shell: uname -a >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
     - name: discos df -h
+      shell: echo "####DISCOS####" >> /tmp/Evidencias.txt 
       shell: df -h >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
