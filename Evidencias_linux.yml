@@ -21,7 +21,7 @@
     - debug: var=out.stdout_lines
 
     - name: discos df -h
-      shell: df -h >> /tmp/Evidencias.txt
+      shell: df  >> /tmp/Evidencias.txt
       shell: echo "####DISCO DF ####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
