@@ -9,8 +9,8 @@
   hosts: all
   tasks:
     - name: nombre servidor - hostname
-      shell: echo "####hostname####" > /tmp/Evidencias.txt
-      shell: hostname >> /tmp/Evidencias.txt
+      shell: hostname > /tmp/Evidencias.txt
+      shell: echo "####hostname####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines     
       
