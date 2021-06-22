@@ -3,15 +3,16 @@
   connection: local
   tasks:
     - name: tarea
-      hostname: '10.215.99.55'                                         # IP del vCenter
-      username: 'administrator@vsphere.local'                        # Usuario de vCenter
-      password: 'Lab2021*'     
-      vm_name: 'lini1' 
-      attributes:
-      - name: MyAttribute
-        value: MyValue
-      - name: MyAttribute2
-        value: MyValue2
+      community.vmware.vmware_guest_custom_attributes:
+        hostname: '10.215.99.55'                                         # IP del vCenter
+        username: 'administrator@vsphere.local'                        # Usuario de vCenter
+        password: 'Lab2021*'     
+        vm_name: 'lini1' 
+        attributes:
+          - name: MyAttribute
+            value: MyValue
+          - name: MyAttribute2
+            value: MyValue2
       delegate_to: localhost
       register: attributes
 ...
