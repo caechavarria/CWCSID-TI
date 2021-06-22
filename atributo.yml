@@ -4,7 +4,7 @@
   tasks:
     - name: Add multiple virtual machine custom attributes
       vmware_guest_custom_attributes:
-      hostname: 10.215.99.55                                         # IP del vCenter
+      hostname: '10.215.99.55'                                         # IP del vCenter
       username: 'administrator@vsphere.local'                        # Usuario de vCenter
       password: 'Lab2021*'     
       vm_name: 'lini1' 
