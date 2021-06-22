@@ -1,0 +1,18 @@
+---
+- hosts: all
+  connection: local
+  tasks:
+    - name: Add multiple virtual machine custom attributes
+      community.vmware.vmware_guest_custom_attributes:
+      hostname: 10.215.99.55                                         # IP del vCenter
+      username: 'administrator@vsphere.local'                        # Usuario de vCenter
+      password: 'Lab2021*'     
+      state: present
+      attributes:
+      - name: MyAttribute
+        value: MyValue
+      - name: MyAttribute2
+        value: MyValue2
+      delegate_to: localhost
+      register: attributes
+...
