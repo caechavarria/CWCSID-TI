@@ -2,7 +2,7 @@
 - hosts: all
   connection: local
   tasks:
-    - name: Add multiple virtual machine custom attributes
+    - name: tarea
       vmware_guest_custom_attributes:
       hostname: '10.215.99.55'                                         # IP del vCenter
       username: 'administrator@vsphere.local'                        # Usuario de vCenter
