@@ -6,7 +6,7 @@
 # Plataforma: LINUX
 ###################################################################################
 - name: evidencia
-  hosts: LINUX_CURACAO
+  hosts: all
   tasks:
     - name: nombre servidor - hostname
       shell: hostname > /tmp/Evidencias.txt
