@@ -3,7 +3,7 @@
   connection: local
   tasks:
     - name: tarea
-      community.vmware.vmware_guest_custom_attributes:
+      vmware_guest_custom_attribute_defs:
         hostname: '10.215.99.55'                                         # IP del vCenter
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'     
