@@ -89,25 +89,15 @@
     - name: date - timedatectl
       shell: timedatectl >> /tmp/Evidencias.txt
       register: out 
-    - debug: var=out.stdout_lines
-    
-    - name: yum history 
-      shell: echo "###YUMHISTORY###" >> /tmp/Evidencias.txt
-      register: out
-    - debug: var=out.stdout_lines
-                    
-    - name: Ultimas actulizaciones - yum history
-      shell: sudo yum history >> /tmp/Evidencias.txt
-      register: out
-    - debug: var=out.stdout_lines
-    
+    - debug: var=out.stdout_lines    
+   
     - name: Messages_Log 
       shell: echo "###LOGMESSENGER###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Messages
-      shell: sudo tail --lines=10 /var/log/messages >> /tmp/Evidencias.txt
+      shell: tail --lines=10 /var/log/messages >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -117,7 +107,17 @@
     - debug: var=out.stdout_lines
     
     - name: Servicio ejecutado - systemctl | grep running
-      shell: sudo systemctl | grep running >> /tmp/Evidencias.txt
+      shell: systemctl | grep running >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: yum history 
+      shell: echo "###YUMHISTORY###" >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+                    
+    - name: Ultimas actulizaciones - yum history
+      shell: yum history >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
