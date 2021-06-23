@@ -71,8 +71,18 @@
       register: out
     - debug: var=out.stdout_lines
     
+    - name: UPTIME
+      shell: echo "###UPTIME###" >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
     - name: Uptime - uptime
       shell: uptime >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: timedatectl
+      shell: echo "###DATE###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
