@@ -19,8 +19,8 @@
       register: out
     - debug: var=out.stdout_lines
     
-    - name: nombre servidor - uname
-      shell: "###UNAMEA###" >> /tmp/Evidencias.txt
+    - name: uname
+      shell: echo "###UNAMEA###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
