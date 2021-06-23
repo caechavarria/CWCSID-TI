@@ -101,17 +101,17 @@
       register: out
     - debug: var=out.stdout_lines
     
-    - name: Messages Log - tai 
+    - name: Messages_Log 
       shell: echo "###LOGMESSENGER###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
-    - name: Messages Log - tail --lines=20 /var/log/messages
-        shell: sudo tail --lines=10 /var/log/messages >> /tmp/Evidencias.txt
+    - name: Messages
+      shell: sudo tail --lines=10 /var/log/messages >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
-    - name: Messages Log - tai 
+    - name: systemctl
       shell: echo "###SERVICES###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
