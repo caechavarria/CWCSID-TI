@@ -10,7 +10,7 @@
   tasks:
     - name: nombre servidor - hostname
       shell: hostname > /tmp/Evidencias.txt
-      shell: echo -e "\n####NOMBRE####" >> /tmp/Evidencias.txt
+      shell: echo -e "####NOMBRE####" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines     
       
