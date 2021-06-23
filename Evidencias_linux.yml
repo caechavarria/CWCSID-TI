@@ -60,7 +60,7 @@
     - debug: var=out.stdout_lines
     
     - name: mEMORIA
-      shell: echo "###MEMORIASWAP###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###MEMORIASWAP###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
        
@@ -82,7 +82,7 @@
     - debug: var=out.stdout_lines
     
     - name: timedatectl
-      shell: echo "###DATE###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###DATE###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
@@ -92,7 +92,7 @@
     - debug: var=out.stdout_lines    
    
     - name: systemctl
-      shell: echo "###SERVICES###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###SERVICES###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -102,7 +102,7 @@
     - debug: var=out.stdout_lines
     
     - name: yum history 
-      shell: echo "###YUMHISTORY###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###YUMHISTORY###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
                     
@@ -112,7 +112,7 @@
     - debug: var=out.stdout_lines
     
     - name: Messages_Log 
-      shell: echo "###LOGMESSENGER###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###LOGMESSENGER###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
