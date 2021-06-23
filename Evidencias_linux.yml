@@ -10,7 +10,7 @@
   tasks:
     - name: nombre servidor - hostname
       shell: hostname > /tmp/Evidencias.txt
-      shell: echo "###hostname###" >> /tmp/Evidencias.txt
+      shell: echo "###HOSTNAME###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
@@ -21,6 +21,7 @@
 
     - name: discos df -h
       shell: df -h >> /tmp/Evidencias.txt
+      shell: echo "###DISCOS###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
