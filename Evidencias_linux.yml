@@ -10,7 +10,7 @@
   tasks:
     - name: nombre servidor - hostname
       shell: hostname > /tmp/Evidencias.txt
-      shell: echo -e "\n\###HOSTNAME###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###HOSTNAME###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -20,7 +20,7 @@
     - debug: var=out.stdout_lines
     
     - name: uname
-      shell: echo -e "\n\###UNAMEA###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###UNAMEA###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
@@ -30,7 +30,7 @@
     - debug: var=out.stdout_lines
 
     - name: discos df -h-
-      shell: echo "###DISCOSDF###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###DISCOSDF###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -40,7 +40,7 @@
     - debug: var=out.stdout_lines
     
     - name: discosLSBLK
-      shell: echo "###DISCOSLSBLK###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###DISCOSLSBLK###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -50,7 +50,7 @@
     - debug: var=out.stdout_lines
     
     - name: Procesadors nproc1
-      shell: echo "###PROCESADORES###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###PROCESADORES###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -72,7 +72,7 @@
     - debug: var=out.stdout_lines
     
     - name: UPTIME
-      shell: echo "###UPTIME###" >> /tmp/Evidencias.txt
+      shell: echo -e "\n###UPTIME###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
