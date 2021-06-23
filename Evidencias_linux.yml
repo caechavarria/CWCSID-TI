@@ -20,7 +20,7 @@
     - debug: var=out.stdout_lines
     
     - name: nombre servidor - uname
-      shell: "###UNAME-A###" >> /tmp/Evidencias.txt
+      shell: "###UNAMEA###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
@@ -31,7 +31,7 @@
 
     - name: discos df -h-
       shell: df -h >> /tmp/Evidencias.txt
-      shell: echo "###DISCOS-DF###" >> /tmp/Evidencias.txt
+      shell: echo "###DISCOSDF###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
@@ -42,7 +42,7 @@
     
     - name: discosLSBLK
       shell: df -h >> /tmp/Evidencias.txt
-      shell: echo "###DISCOS-LSBLK###" >> /tmp/Evidencias.txt
+      shell: echo "###DISCOSLSBLK###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
