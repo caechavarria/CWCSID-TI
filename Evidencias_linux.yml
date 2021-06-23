@@ -30,7 +30,6 @@
     - debug: var=out.stdout_lines
 
     - name: discos df -h-
-      shell: df -h >> /tmp/Evidencias.txt
       shell: echo "###DISCOSDF###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
@@ -41,7 +40,6 @@
     - debug: var=out.stdout_lines
     
     - name: discosLSBLK
-      shell: df -h >> /tmp/Evidencias.txt
       shell: echo "###DISCOSLSBLK###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
@@ -52,13 +50,17 @@
     - debug: var=out.stdout_lines
     
     - name: Procesadors nproc1
-      shell: df -h >> /tmp/Evidencias.txt
-      shell: echo "###PORCESADOTRES###" >> /tmp/Evidencias.txt
+      shell: echo "###PROCESADORES###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Procesadors nproc
       shell: nproc >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: mEMORIA
+      shell: echo "###MEMORIASWAP###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
        
