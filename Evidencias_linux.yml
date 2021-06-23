@@ -90,20 +90,35 @@
       shell: timedatectl >> /tmp/Evidencias.txt
       register: out 
     - debug: var=out.stdout_lines
+    
+    - name: yum history 
+      shell: echo "###YUMHISTORY###" >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
                     
     - name: Ultimas actulizaciones - yum history
       shell: yum history >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
+    - name: Messages Log - tai 
+      shell: echo "###LOGMESSENGER###" >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
     - name: Messages Log - tail --lines=20 /var/log/messages
-      shell: tail --lines=20 /var/log/messages >> /tmp/Evidencias.txt
+      shell: tail --lines=10 /var/log/messages >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: Messages Log - tai 
+      shell: echo "###SERVICES###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: Servicio ejecutado - systemctl | grep running
       shell: systemctl | grep running >> /tmp/Evidencias.txt
-      register: servicio
+      register: out
     - debug: var=out.stdout_lines
 
     #- name: Susbsicripcion - subscription-manager list
