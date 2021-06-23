@@ -10,7 +10,6 @@
   tasks:
     - name: nombre servidor - hostname
       shell: echo "name: nombre servidor - hostname" > /tmp/Evidencias.txt
-      shell: hostname >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
@@ -36,8 +35,6 @@
        
     - name: memory - free -m 
       shell: free -m >> /tmp/Evidencias.txt
-      shell: swapon -s >> /tmp/Evidencias.txt
-      shell: vmstat >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
