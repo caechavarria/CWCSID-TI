@@ -75,7 +75,7 @@
     - debug: var=out.stdout_lines
     
     - name: memory - free -m 
-      shell:swapon -s >> /tmp/Evidencias.txt
+      shell: swapon -s >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
