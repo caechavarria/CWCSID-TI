@@ -14,8 +14,13 @@
       register: out
     - debug: var=out.stdout_lines
     
-    - name: nombre servidor - hostname
-      shell: hostname > /tmp/Evidencias.txt
+    - name: nombre servidor - hostname1
+      shell: hostname >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: nombre servidor - uname
+      shell: "###UNAME-A###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
 
@@ -24,19 +29,31 @@
       register: out
     - debug: var=out.stdout_lines
 
-    - name: discos df -h
+    - name: discos df -h-
       shell: df -h >> /tmp/Evidencias.txt
-      shell: echo "###DISCOS###" >> /tmp/Evidencias.txt
+      shell: echo "###DISCOS-DF###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: discos df -h
       shell: df -h >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: discosLSBLK
+      shell: df -h >> /tmp/Evidencias.txt
+      shell: echo "###DISCOS-LSBLK###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
     - name: discos -Total - lsblk |grep disk
-      shell: lsblk |grep disk >> /tmp/Evidencias.txt
+      shell: lsblk >> /tmp/Evidencias.txt
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: Procesadors nproc1
+      shell: df -h >> /tmp/Evidencias.txt
+      shell: echo "###PORCESADOTRES###" >> /tmp/Evidencias.txt
       register: out
     - debug: var=out.stdout_lines
     
