@@ -91,16 +91,6 @@
       register: out 
     - debug: var=out.stdout_lines    
    
-    - name: Messages_Log 
-      shell: echo "###LOGMESSENGER###" >> /tmp/Evidencias.txt
-      register: out
-    - debug: var=out.stdout_lines
-    
-    - name: Messages
-      shell: tail --lines=10 /var/log/messages >> /tmp/Evidencias.txt
-      register: out
-    - debug: var=out.stdout_lines
-    
     - name: systemctl
       shell: echo "###SERVICES###" >> /tmp/Evidencias.txt
       register: out
