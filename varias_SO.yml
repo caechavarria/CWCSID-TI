@@ -3,7 +3,7 @@
   vars:
      VMS:
        - vm:
-         Name:
+         #Name:
          SO:
          DISK:
          RAM:
@@ -13,7 +13,7 @@
          MASK:
          GW:
        - vm:
-         Name:
+         #Name:
          SO:
          DISK:
          RAM:
