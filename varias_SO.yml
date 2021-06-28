@@ -55,5 +55,4 @@
         wait_for_ip_address: yes        
       delegate_to: localhost
       register: deploy
-      with_items: "{{ VMS }}" 	
-	  
+      with_items: "{{ VMS }}" 
