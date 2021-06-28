@@ -1,27 +1,25 @@
 - hosts: all
   connection: local
   vars:
-     VMS:
-       - vm:
-         HOSTNAME:
-         TEMPLATE:
-         DISK:
-         RAM:
-         CPU:
+    VMS:
+       - HOSTNAME: test 1
+         TEMPLATE: TEMPLETE_LINUX 
+         DISK: 20
+         RAM: 1
+         CPU: 1
          portgroup_name:
-         IP:
-         MASK:
-         GW:
-       - vm:
-         HOSTNAME:
-         TEMPLATE:
-         DISK:
-         RAM:
-         CPU:
+         IP: 10.215.99.122
+         MASK: 10.215.99.254
+         GW: 10.215.99.254
+       - HOSTNAME: test2
+         TEMPLATE: TEMPLETE_WINDOWS
+         DISK: 20
+         RAM: 1
+         CPU: 1
          portgroup_name:
-         IP:
-         MASK:
-         GW:
+         IP: 10.215.99.124
+         MASK: 255.255.255.0
+         GW: 10.215.99.254
 
   tasks:
     - vmware_guest:
