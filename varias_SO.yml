@@ -7,7 +7,7 @@
          DISK: 20
          RAM: 1024
          CPU: 1
-         portgroup_name:
+         portgroup_name: Dospinos_Management
          IP: 10.215.99.122
          MASK: 10.215.99.254
          GW: 10.215.99.254
@@ -16,7 +16,7 @@
          DISK: 20
          RAM: 1024
          CPU: 1
-         portgroup_name:
+         portgroup_name: Dospinos_Management
          IP: 10.215.99.124
          MASK: 255.255.255.0
          GW: 10.215.99.254
