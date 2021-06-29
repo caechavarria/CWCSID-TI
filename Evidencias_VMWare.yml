@@ -1,6 +1,11 @@
 ---
 - hosts: all
   tasks:
+  - name: Copiar_Archivo_VM
+    shell: sshpass -p Colombia123 scp root@10.215.99.123:/tmp/MV.txt /etc/ansible
+    register: result
+  - debug: var=result.stdout_lines
+  
   - name: Ejecutar Evidencias de Vmware
     shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1
     register: result
