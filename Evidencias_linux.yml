@@ -129,6 +129,11 @@
       register: out
     - debug: var=out.stdout_lines
     
+    - name: nombre_Servidor - hostname
+      shell: hostname > /tmp/VM.txt
+      register: out
+    - debug: var=out.stdout_lines   
+    
     #- name: Susbsicripcion - subscription-manager list
      # shell: subscription-manager list
       #register: out
