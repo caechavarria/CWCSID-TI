@@ -6,7 +6,7 @@
     register: result
   - debug: var=result.stdout_lines
   - name: waiting
-    shell: sleep 15
+    shell: sleep 20
   
   - name: Ejecutar Evidencias de Vmware
     shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1
