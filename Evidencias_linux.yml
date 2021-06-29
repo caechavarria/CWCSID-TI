@@ -8,6 +8,11 @@
 - name: evidencia
   hosts: all
   tasks:
+     - name: nombre servidor - hostname
+       shell: hostname > /tmp/VM.txt
+       register: out
+     - debug: var=out.stdout_lines
+  
     - name: nombre servidor - hostname
       shell: hostname > /tmp/Evidencias.txt
       shell: echo -e "\n###HOSTNAME###" >> /tmp/Evidencias.txt
