@@ -1,6 +1,7 @@
 ---
 - hosts: all
   tasks:
+####copia el archivo del servidor al file####
   - name: Copiar_Archivo_VM
     shell: sshpass -p Colombia123 scp root@10.215.99.123:/tmp/VM.txt /etc/ansible
     register: result
