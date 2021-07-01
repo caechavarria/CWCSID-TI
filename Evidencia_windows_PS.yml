@@ -10,8 +10,8 @@
     win_command: cmd.exe /c hostname > C:\tools\config\VM.txt
     register: hostname
     
-  - name: Copy a single file where the source is on the remote host
+  - name: Copy File
     win_copy:
-    src: C:\tools\config\VM.txt
-    dest: C:\admin\VM.txt
-    remote_src: yes
+      src: C:\tools\config\VM.txt
+      dest: C:\admin\VM.txt
+      remote_src: yes
