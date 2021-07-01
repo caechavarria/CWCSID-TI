@@ -12,7 +12,7 @@
       folder: /VMs-Windows/
       name: "{{ item }}"
       state: present
-      snapshot_name: snap1
+      snapshot_name: "{{ SNAP }}"
       description: snap1_description
     delegate_to: localhost
     
@@ -29,7 +29,7 @@
       folder: /VMs-Windows/
       name: "{{ item }}"
       state: absent
-      snapshot_name: snap12
+      snapshot_name: "{{ SNAP }}"
       description: snap1_description
     delegate_to: localhost
 ...
