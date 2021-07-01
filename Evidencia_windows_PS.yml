@@ -9,9 +9,8 @@
   - name: hostname
     win_command: cmd.exe /c hostname > C:\tools\config\VM.txt
     register: hostname
-    
-  - name: Copy File
-    win_copy:
-      src: C:\\tools\\config\\VM.txt
-      dest: C:\\admin
-      remote_src: yes
+
+ - name: Copy a single file
+   ansible.windows.win_copy:
+     src: C:\tools\Config\VM.txt
+     dest: C:\admin\VM.txt
