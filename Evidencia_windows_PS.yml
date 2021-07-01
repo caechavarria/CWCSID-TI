@@ -4,9 +4,6 @@
   - name: Ejecutar Script en PowerShell
     #win_command: powershell.exe -ExecutionPolicy ByPass -File C:\admin\evidencias1.ps1
     #register: result
-  #- debug: var=result.stdout_lines
-  
-  #- name: Hostname
-    win_command: hostname > C:\admin\VM.txt
-    register: result
-  - debug: var=result.stdout_lines
+  #- debug: var=result.stdout_lines  
+    win_command: cmd.exe /c hostname > C:\admin\VM.txt
+    register: hostname
