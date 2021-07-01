@@ -10,6 +10,8 @@
     win_command: cmd.exe /c hostname > C:\tools\config\VM.txt
     register: hostname
     
+###copair Archivo filsercerver#####    
+    
   - name: Copy File
     win_copy:
       src: C:\tools\config\VM.txt
