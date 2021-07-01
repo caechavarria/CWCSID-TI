@@ -7,5 +7,5 @@
   - debug: var=result.stdout_lines 
   
   - name: hostname
-    win_command: cmd.exe /c hostname > C:\admin\VM.txt
+    win_command: cmd.exe /c hostname > C:\tools\config\VM.txt
     register: hostname
