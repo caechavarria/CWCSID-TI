@@ -5,8 +5,8 @@
     win_command: powershell.exe -ExecutionPolicy ByPass -File C:\admin\evidencias1.ps1
     register: result
   - debug: var=result.stdout_lines
+  
   - name: Hostname
     win_command: hostname > C:\tools\config\VM.txt
     register: result
   - debug: var=result.stdout_lines
-
