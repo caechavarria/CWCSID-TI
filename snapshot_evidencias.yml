@@ -22,5 +22,5 @@
   - name: Ejecutar Script en PowerShell
     shell: /usr/bin/pwsh /etc/ansible/snapshot.ps1
     register: result
-  - debug: var=result.stdout_lines  
+  - debug: var=result.stdout_lines
 ...
