@@ -15,8 +15,11 @@
       snapshot_name: "{{ SNAP }}"
       description: snap1_description
     delegate_to: localhost
-
-  tasks:
+      
+  - name: waiting
+    shell: sleep 30
+  - name: Remove snpa
+  
   - name: Ejecutar Script en PowerShell
     hell: /usr/bin/pwsh /etc/ansible/snapshot.ps1
     register: result
