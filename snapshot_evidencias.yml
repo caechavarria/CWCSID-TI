@@ -20,7 +20,7 @@
     shell: sleep 30
     
   - name: Ejecutar Script en PowerShell
-    hell: /usr/bin/pwsh /etc/ansible/snapshot.ps1
+    shell: /usr/bin/pwsh /etc/ansible/snapshot.ps1
     register: result
   - debug: var=result.stdout_lines  
 ...
