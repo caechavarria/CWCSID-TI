@@ -1,0 +1,62 @@
+---
+- hosts: all
+  connection: local
+  tasks:
+    - vmware_guest:
+        hostname: 10.215.99.55                                         # IP del vCenter
+        username: 'administrator@vsphere.local'                        # Usuario de vCenter
+        password: 'Lab2021*'                                           # Password de vCenter
+        validate_certs: False
+        name: 'linux0001'                            # Nombre como se visualizará en el vCenter
+        datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
+        cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
+        folder: 'VM-Linux'                                       # Nombre del folder donde se va a desplegar
+        customvalues:
+        - key: "RemoteDisplay.maxConnections" 
+          value: "3"
+        - key: "isolation.tools.copy.disable"
+          value: "True"
+        - key: "isolation.tools.paste.disable"
+          value: "True"
+        - key: "isolation.tools.diskShrink.disable"
+          value: "True"
+        - key: "isolation.tools.diskWiper.disable"
+          value: "True"
+        - key: "mks.enabled"
+          value: "False"
+        - key: "tools.setInfo.sizeLimit"
+          value: "1048576"
+        - key: "RemoteDisplay.vnc.enabled"
+          value: "False"
+        - key: "tools.guestlib.enableHostInfo"
+          value: "False"
+        - key: "isolation.tools.dnd.disable" 
+          value: "True"
+        - key: "isolation.tools.setGUIOptions.enable"
+          value: "True"
+        - key: "isolation.device.connectable.disable"
+          value: "True"	
+        - key: "isolation.device.edit.disable"
+          value: "True"   
+        - key: "vmci0.unrestricted"
+          value: "False"
+        - key: "log.rotateSize"
+          value: "1000000"
+        - key: "log.keepOld"
+          value: "10"
+        - key: "guest.command.enabled"
+          value: "False"
+        - key: "tools.guestlib.enableHostInfo"
+          value: "False"
+        - key: "vcpu.hotadd"
+          value: "True"
+        - key: "mem.hotadd"
+          value: "True"  
+        - key: "devices.hotplug"
+          value: "False"
+        - key: "snapshot.redoNotWithParent"
+          value: "True"
+        state: poweredon                                               # Estado del Servidor luego del despliegue
+        wait_for_ip_address: yes        
+      delegate_to: localhost
+...  
