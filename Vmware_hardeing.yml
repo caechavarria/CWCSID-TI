@@ -7,10 +7,10 @@
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'                                           # Password de vCenter
         validate_certs: False
-        name: 'linux0001'                            # Nombre como se visualizará en el vCenter
+        name: "{{ VM }}"                                               # Nombre como se visualizará en el vCenter
         datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
-        folder: 'VM-Linux'                                       # Nombre del folder donde se va a desplegar
+        folder: "{{ folder }}"                                         # Nombre del folder donde se va a desplegar
         customvalues:
         - key: "RemoteDisplay.maxConnections" 
           value: "3"
