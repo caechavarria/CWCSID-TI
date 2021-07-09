@@ -7,9 +7,6 @@
 ###########################################
 - hosts: all
   tasks:
-  - name: waiting
-    shell: sleep 240
-
   - name: Ejecutar Script en PowerShell
     win_command: powershell.exe -ExecutionPolicy ByPass -File C:\admin\evidencias1.ps1
     register: result
