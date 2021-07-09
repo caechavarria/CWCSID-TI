@@ -21,7 +21,10 @@
       snapshot_name: "{{ SNAP }}"
       description: snap1_description
     delegate_to: localhost
-
+    
+  - name: waiting
+    shell: sleep 30 
+  
   - name: Remove snpa  
     vmware_guest_snapshot: 
       hostname: 10.215.99.55
