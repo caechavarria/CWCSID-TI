@@ -1,9 +1,10 @@
 ---
-###############################
-#                             #
-#                             #
-#                             #
-###############################
+######DESPLIEGUE VARIOS SERVIDORES SO######
+# Elaborado por: SID - Implementacion     #                              
+# Fecha: 09 Julio de 2021                 #
+# Compañía: WCW                           #  
+# Plataforma: LINUX                       #
+###########################################
 - hosts: all
   connection: local
   tasks:
