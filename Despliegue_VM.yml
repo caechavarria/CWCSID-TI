@@ -13,11 +13,11 @@
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'                                           # Password de vCenter
         validate_certs: False
-        name: "{{ HOSTNAME }}{{ item }}"                                    # Nombre como se visualizará en el vCenter
+        name: "{{ HOSTNAME }}{{ item }}"                               # Nombre como se visualizará en el vCenter
         template: 'TEMPLETE_WINDOWS'                                   # Nombre de la Plantilla en el vCenter
         datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
-        folder: '/VMs-Windows'                                            # Nombre del folder donde se va a desplegar
+        folder: '/VMs-Windows'                                         # Nombre del folder donde se va a desplegar
         annotation: 'Servidor desplegado desde Ansible AWX'            # Nota que se quiera colocar en el Servidor desplegado
         disk:
         - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco
@@ -26,16 +26,16 @@
         hardware:
           memory_mb: '{{ RAM }}'                                       # Cantidad de Memoria RAM a asignar
           num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
-          #num_cpu_cores_per_socket: 2                                  # Cantidad de CPUs Cores a asignar
+          #num_cpu_cores_per_socket: 2                                 # Cantidad de CPUs Cores a asignar
           scsi: paravirtual
         networks:   
-        - name: '{{ portgroup_name }}'                                   # Nombre de la Red a asignar
+        - name: '{{ portgroup_name }}'                                 # Nombre de la Red a asignar
           ip: '{{ IP }}'                                               # Dirección IP a asignar    
           netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
           gateway: '{{ GW }}'                                          # Gateway a asignar
           dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
           - 8.8.8.8
-          device_type: vmxnet3                                          #Tipo de Interfaz de Red a asignar
+          device_type: vmxnet3                                         #Tipo de Interfaz de Red a asignar
           start_connected: True
         state: poweredon                                               # Estado del Servidor luego del despliegue
         wait_for_ip_address: yes        
