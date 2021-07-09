@@ -1,15 +1,20 @@
 ---
+######DESPLIEGUE VARIOS SERVIDORES SO######
+# Elaborado por: SID - Implementacion     #                              
+# Fecha: 09 Julio de 2021                 #
+# Compañía: WCW                           #  
+# Plataforma: LINUX                       #
+###########################################
 - hosts: all
   tasks:
-####copia el archivo del servidor al file####
   - name: Copiar_Archivo_VM
-    shell: sshpass -p Colombia123 scp root@10.215.99.123:/tmp/VM.txt /etc/ansible
+    shell: sshpass -p Colombia123 scp root@10.215.99.123:/tmp/VM.txt /etc/ansible   ##copia el archivo del servidor a tomar evidencias
     register: result
   - debug: var=result.stdout_lines
   - name: waiting
     shell: sleep 10
   
-  - name: Ejecutar Evidencias de Vmware
-    shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1
+  - name: Ejecutar Evidencias de Vmware                                               
+    shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1                                ##se ejecuta un PS1 para q tome evidencia a nivel vmware
     register: result
   - debug: var=result.stdout_lines
