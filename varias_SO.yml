@@ -1,13 +1,14 @@
 - hosts: all
-###############################
-#                             #
-#                             #
-#                             #
-###############################
+######DESPLIEGUE VARIOS SERVIDORES SO#######
+# Elaborado por: SID - Implementacion      #                              
+# Fecha: 09 Julio de 2021                  #
+# Compañía: WCW                            #  
+# Plataforma: LINUX                        #
+############################################
   connection: local
   vars:
     VMS:
-       - HOSTNAME: test 1
+       - HOSTNAME: test 1                                            # Nombre de Serviodor 2
          TEMPLATE: TEMPLETE_LINUX 
          DISK: 20
          RAM: 1024
@@ -16,7 +17,7 @@
          IP: 10.215.99.122
          MASK: 10.215.99.254
          GW: 10.215.99.254
-       - HOSTNAME: test2
+       - HOSTNAME: test2                                               # Nombre de Serviodor 2      
          TEMPLATE: TEMPLETE_WINDOWS
          DISK: 20
          RAM: 1024
