@@ -1,10 +1,10 @@
 ---
-########################### TOMA EVIDENCIAS SERVIDORES LINUX ######################
-# Elaborado por: SID - Implementacion
-# Fecha: 19 de Abril de 2021
-# Compañía: WCW
-# Plataforma: LINUX
-###################################################################################
+######TOMA EVIDENCIAS SERVIDORES LINUX######
+# Elaborado por: SID - Implementacion      #                              
+# Fecha: 09 Julio de 2021                  #
+# Compañía: WCW                            #  
+# Plataforma: LINUX                        #
+############################################
 - name: evidencia
   hosts: all
   tasks:
