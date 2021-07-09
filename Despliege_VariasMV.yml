@@ -1,4 +1,9 @@
 ---
+###############################
+#                             #
+#                             #
+#                             #
+###############################
 - hosts: all
   connection: local
   tasks:
@@ -81,4 +86,4 @@
       delegate_to: localhost
       register: deploy
       with_sequence: start=1 end={{ numb_vm }}
-...  
+...
