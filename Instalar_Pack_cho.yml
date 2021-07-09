@@ -1,4 +1,10 @@
 ---
+#### INSTALAR PAQUETES CHOCOLATEY WINDOWS##
+# Elaborado por: SID - Implementacion     #                              
+# Fecha: 09 Julio de 2021                 #
+# Compañía: WCW                           #  
+# Plataforma: LINUX                       #
+###########################################
 - hosts: all  
   gather_facts: false
   tasks:
