@@ -1,9 +1,10 @@
 ---
-###############################
-#                             #
-#                             #
-#                             #
-###############################
+####### CREACION USUARIO SO WINDOWS #######
+# Elaborado por: SID - Implementacion     #                              
+# Fecha: 09 Julio de 2021                 #
+# Compañía: WCW                           #  
+# Plataforma: LINUX                       #
+###########################################
 - name: Add a user
   hosts: all
   gather_facts: false
