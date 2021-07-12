@@ -3,39 +3,39 @@
 # Elaborado por: SID - Implementacion     #                              
 # Fecha: 09 Julio de 2021                 #
 # Compañía: WCW                           #  
-# Plataforma: LINUX                       #
+# Plataforma: VMWARE                      #
 ###########################################
 - hosts: all
   connection: local
   tasks:
-  - name: snpa
-    vmware_guest_snapshot: 
-      hostname: 10.215.99.55
-      username: administrator@vsphere.local
-      password: Lab2021*
+  - name: Toma snap
+    vmware_guest_snapshot:                       # Moduo toma de Snapshot            
+      hostname: 10.215.99.55                     # IP del vCenter
+      username: administrator@vsphere.local      # Usuario de vCenter
+      password: Lab2021*                         # Password de vCenter
       validate_certs: False
-      datacenter: CURANSIBLEDCLAB01
-      folder: /VMs-Windows/
-      name: "{{ item }}"
-      state: present
-      snapshot_name: "{{ SNAP }}"
-      description: snap1_description
+      datacenter: CURANSIBLEDCLAB01              # Nombre del Datacenter donde se va a desplegar  
+      folder: /VMs-Windows/                      # Nombre del folder donde se va a ejecutar
+      name: "{{ item }}"                         # Nombre del Servidopr a toamar el snap                       
+      state: present                             # Toma de Snap 
+      snapshot_name: "{{ SNAP }}"                # Nombre del Snapshot a tomar
+      description: snap1_description             
     delegate_to: localhost
     
-  - name: waiting
-    shell: sleep 30 
+  - name: waiting 
+    shell: sleep 30                              # Despues de Tomar el snap espra 30 Segundos
   
   - name: Remove snpa  
-    vmware_guest_snapshot: 
-      hostname: 10.215.99.55
-      username: administrator@vsphere.local
-      password: Lab2021*
+    vmware_guest_snapshot:                       # Moduo toma de Snapshot  
+      hostname: 10.215.99.55                     # IP del vCenter
+      username: administrator@vsphere.local      # Usuario de vCenter    
+      password: Lab2021*                         # Password de vCenter 
       validate_certs: False
-      datacenter: CURANSIBLEDCLAB01
-      folder: /VMs-Windows/
-      name: "{{ item }}"
-      state: absent
-      snapshot_name: "{{ SNAP }}"
+      datacenter: CURANSIBLEDCLAB01              # Nombre del Datacenter donde se va a desplegar 
+      folder: /VMs-Windows/                      # Nombre del folder donde se va a ejecuta 
+      name: "{{ item }}"                         # Nombre del Servidopr donde va a eliminar el snap      
+      state: absent                              # Eliminacion de Snap
+      snapshot_name: "{{ SNAP }}"                # Nombre del Snapshot a borrar
       description: snap1_description
     delegate_to: localhost
 ...
