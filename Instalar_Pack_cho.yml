@@ -3,16 +3,16 @@
 # Elaborado por: SID - Implementacion     #                              
 # Fecha: 09 Julio de 2021                 #
 # Compañía: WCW                           #  
-# Plataforma: LINUX                       #
+# Plataforma: WINDOWS                     #
 ###########################################
 - hosts: all  
   gather_facts: false
   tasks:
     - name: Install Chocolatey packages
-      win_chocolatey:
+      win_chocolatey:                     # Conectarse al Modulo chocolatey
         name:
-        - slack
-        - dropbox
-        - google-chrome-x64
-        - 7zip
+        - slack                           # Instalacion Paquete SLACK
+        - dropbox                         # Instalacion Paquete DROPBOX    
+        - google-chrome-x64               # Instalacion Paquete CHROME  
+        - 7zip                            # Instalacion Paquete 7ZIP
         state: latest
