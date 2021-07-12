@@ -3,11 +3,11 @@
 # Elaborado por: SID - Implementacion     #                              
 # Fecha: 09 Julio de 2021                 #
 # Compañía: WCW                           #  
-# Plataforma: LINUX                       #
+# Plataforma: WINDOWS                     #
 ###########################################
 - hosts: all
   tasks:
-  - name: Create registry path MyCompany
+  - name: WSUS                                                          # Creacion y Modificicacion llaves de Regristor WSUS
     win_regedit:
       path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
       name: WUServer
