@@ -21,4 +21,4 @@
         portgroup_name: "{{ portgroup_name }}"        # Nombre de PortGroup a visualizar en vmware
         vlan_id: "{{ vlan_id }}"                      # Nmbre o  numero  de la Vlan a crear
         validate_certs: False
-      delegate_to: 10.215.99.103
+      delegate_to: localhost
