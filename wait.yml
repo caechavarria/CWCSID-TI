@@ -1,4 +1,11 @@
+---
+########CREACION PORTGROUP EN VMWARE#######
+# Elaborado por: SID - Implementacion     #                              
+# Fecha: 09 Julio de 2021                 #
+# Compañía: WCW                           #  
+# Plataforma: Windows                     #
+###########################################
 - hosts: all
   tasks:
-  - name: waiting
-    shell: sleep 180
+  - name: waiting                         # Nombre de Playbook
+    shell: sleep 180                      # tiempo de espera para despliegue y finalizacion de maquians windows
