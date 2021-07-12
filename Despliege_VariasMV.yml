@@ -1,9 +1,10 @@
 ---
-###############################
-#                             #
-#                             #
-#                             #
-###############################
+####### CREACION USUARIO SO WINDOWS #######
+# Elaborado por: SID - Implementacion     #                              
+# Fecha: 09 Julio de 2021                 #
+# Compañía: WCW                           #  
+# Plataforma: VMWARE                      #
+###########################################
 - hosts: all
   connection: local
   tasks:
