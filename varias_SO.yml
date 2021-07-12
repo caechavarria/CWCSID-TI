@@ -61,4 +61,4 @@
         wait_for_ip_address: yes        
       delegate_to: localhost
       register: deploy
-      with_items: "{{ VMS }}" 
+      with_items: "{{ VMS }}"                                          # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
