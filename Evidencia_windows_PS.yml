@@ -8,12 +8,12 @@
 - hosts: all
   tasks:
   - name: Ejecutar Script en PowerShell
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\admin\evidencias1.ps1
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\admin\evidencias1.ps1   # Ejecuta un  PS1 
     register: result
   - debug: var=result.stdout_lines 
   
   - name: hostname
-    win_command: cmd.exe /c hostname > C:\tools\config\VM.txt
+    win_command: cmd.exe /c hostname > C:\tools\config\VM.txt                            # Crea nombre de la maquina
     register: hostname
     
 ###copair Archivo filsercerver#####    
