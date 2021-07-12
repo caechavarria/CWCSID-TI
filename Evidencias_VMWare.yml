@@ -3,18 +3,18 @@
 # Elaborado por: SID - Implementacion     #                              
 # Fecha: 09 Julio de 2021                 #
 # Compañía: WCW                           #  
-# Plataforma: LINUX                       #
+# Plataforma: VMWare                      #
 ###########################################
 - hosts: all
   tasks:
   - name: Copiar_Archivo_VM
-    shell: sshpass -p Colombia123 scp root@10.215.99.123:/tmp/VM.txt /etc/ansible   ##copia el archivo del servidor a tomar evidencias
+    shell: sshpass -p Colombia123 scp root@10.215.99.123:/tmp/VM.txt /etc/ansible   # Copia el archivo del servidor a tomar evidencias
     register: result
   - debug: var=result.stdout_lines
   - name: waiting
     shell: sleep 10
   
   - name: Ejecutar Evidencias de Vmware                                               
-    shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1                                ##se ejecuta en e servidor de ansible CENTOS para q tome evidencia a nivel vmware
+    shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1                                # Se ejecuta en e servidor de ansible CENTOS para que tome evidencia a nivel vmware
     register: result
   - debug: var=result.stdout_lines
