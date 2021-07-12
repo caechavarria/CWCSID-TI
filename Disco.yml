@@ -3,25 +3,25 @@
 # Elaborado por: SID - Implementacion     #                              
 # Fecha: 09 Julio de 2021                 #
 # Compañía: WCW                           #  
-# Plataforma: LINUX                       #
+# Plataforma: VMWARE                      #
 ###########################################
 - hosts: all
   vars:
-  - ansible_python_interpreter: /usr/bin/python3 
+  - ansible_python_interpreter: /usr/bin/python3          
   tasks:
-  - name: Create a snapshot
-    vmware_guest_disk:
-        hostname: '10.215.99.55'                                         
-        username: 'administrator@vsphere.local'
-        password: 'Lab2021*'
-        validate_certs: False
-        datacenter: 'CURANSIBLEDCLAB01'
-        name: "{{ Servidor }}"
+  - name: Create a snapshot                             
+    vmware_guest_disk:                                    # Modulo para despliegue
+        hostname: '10.215.99.55'                          # IP del vCenter                
+        username: 'administrator@vsphere.local'           # Usuario de vCenter
+        password: 'Lab2021*'                              # Password de vCenter   
+        validate_certs: False                             
+        datacenter: 'CURANSIBLEDCLAB01'                   # Cluster Vmware
+        name: "{{ Servidor }}"                            # Nombre de servidor a cual hay q Asignar el disco
         disk:
-          - size_gb: "{{ Tamaño }}"
-            type: thin
-            state: present
-            scsi_controller: '0'
-            unit_number: "{{ slot }}"
-            scsi_type: 'paravirtual'
-            datastore: 'Management'
+          - size_gb: "{{ Tamaño }}"                       # Tamaño de Disco    
+            type: thin                                    # Modo de disco
+            state: present                       
+            scsi_controller: '0'                          # Scsi donde se va a utilizarr      
+            unit_number: "{{ slot }}"                     # Numero de Slot donde va ser asiganado 
+            scsi_type: 'paravirtual'                      # Tipo de Disco 
+            datastore: 'Management'                       # Data estorage dodne va quedar el disco
