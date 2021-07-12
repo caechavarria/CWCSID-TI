@@ -9,9 +9,9 @@
   vars:
     host_key_checking: false
   tasks:
-   - name: Add a user linux
+   - name: Add a user linux                                    # Creacion Ususrio Linux
      user:
-       name:  "{{ USER_NAME }}"
-       password: "{{ 'PASSWORD' | password_hash('sha512') }}"
+       name:  "{{ USER_NAME }}"                                # Nombre de ususario
+       password: "{{ 'PASSWORD' | password_hash('sha512') }}"  # Contraseña a asiganar 
        shell: /bin/bash
 ...
