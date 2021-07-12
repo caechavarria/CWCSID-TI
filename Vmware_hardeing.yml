@@ -8,7 +8,7 @@
 - hosts: all
   connection: local
   tasks:
-    - vmware_guest:
+    - vmware_guest:                                                    # Modulo de Vmware
         hostname: 10.215.99.55                                         # IP del vCenter
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'                                           # Password de vCenter
@@ -17,7 +17,7 @@
         datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
         folder: "{{ folder }}"                                         # Nombre del folder donde se va a desplegar
-        customvalues:
+        customvalues:                                                  # Atributos a Modificar  
         - key: "RemoteDisplay.maxConnections" 
           value: "3"
         - key: "isolation.tools.copy.disable"
