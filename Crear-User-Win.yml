@@ -3,7 +3,7 @@
 # Elaborado por: SID - Implementacion     #                              
 # Fecha: 09 Julio de 2021                 #
 # Compañía: WCW                           #  
-# Plataforma: LINUX                       #
+# Plataforma: WINDOWS                     #
 ###########################################
 - name: Add a user
   hosts: all
@@ -11,7 +11,7 @@
   tasks:
     - name: Add User
       win_user:
-        name: "{{ USER_NAME }}"
-        password: "{{ PASSWORD }}"
+        name: "{{ USER_NAME }}"           # Nombre de ususario
+        password: "{{ PASSWORD }}"        # Contraseña a asiganar 
         state: present
 ...
