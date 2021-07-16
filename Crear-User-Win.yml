@@ -5,6 +5,7 @@
 # Compañía: WCW                           #  
 # Plataforma: WINDOWS                     #
 ###########################################
+#
 - name: Add a user
   hosts: all
   gather_facts: false
