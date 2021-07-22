@@ -7,12 +7,12 @@
 ###########################################
 - hosts: all
   tasks:
-  - name: Copiar_Archivo_VM
-    shell: sshpass -p Colombia123 scp root@10.215.99.128:/tmp/VM.txt /etc/ansible   # Copia el archivo del servidor a tomar evidencias
-    register: result
-  - debug: var=result.stdout_lines
-  - name: waiting
-    shell: sleep 10
+  #- name: Copiar_Archivo_VM
+  #  shell: sshpass -p Colombia123 scp root@10.215.99.128:/tmp/VM.txt /etc/ansible   # Copia el archivo del servidor a tomar evidencias
+  #  register: result
+  #- debug: var=result.stdout_lines
+  #- name: waiting
+  #  shell: sleep 10
   
   - name: Ejecutar Evidencias de Vmware                                               
     shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1                                # Se ejecuta en e servidor de ansible CENTOS para que tome evidencia a nivel vmware
