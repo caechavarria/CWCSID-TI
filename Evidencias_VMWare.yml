@@ -8,7 +8,7 @@
 - hosts: all
   tasks:
   - name: Copiar_Archivo_VM
-    shell: sshpass -p Colombia123 scp root@10.215.99.127:/tmp/VM.txt /etc/ansible   # Copia el archivo del servidor a tomar evidencias
+    shell: sshpass -p Colombia123 scp root@10.215.99.128:/tmp/VM.txt /etc/ansible   # Copia el archivo del servidor a tomar evidencias
     register: result
   - debug: var=result.stdout_lines
   - name: waiting
