@@ -9,6 +9,11 @@
   hosts: all
   tasks:
     - name: nombre servidor - hostname                                   
+      shell: hostname > /tmp/VM.txt                                   # Crea archivo VM.txt          
+      register: out
+    - debug: var=out.stdout_lines
+  
+    - name: nombre servidor - hostname                                   
       shell: hostname > /tmp/Evidencias.txt                           # Crea archivo Evidencias.txt 
       shell: echo -e "\n###HOSTNAME###" >> /tmp/Evidencias.txt        # Agrega Liniea al Archivo         
       register: out
