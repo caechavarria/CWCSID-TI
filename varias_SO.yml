@@ -15,7 +15,7 @@
          CPU: 2
          portgroup_name: Dospinos_Management
          IP: 10.215.99.122
-         MASK: 10.215.99.254
+         MASK: 255.255.255.0
          GW: 10.215.99.254
        - HOSTNAME: test_2                                               # Nombre de Serviodor 2      
          TEMPLATE: Teplate_windows_2016
