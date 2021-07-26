@@ -32,7 +32,7 @@
          RAM: 2048
          CPU: 2
          portgroup_name: Dospinos_Management
-         IP: 10.215.99.124
+         IP: 10.215.99.128
          MASK: 255.255.255.0
          GW: 10.215.99.254
 
