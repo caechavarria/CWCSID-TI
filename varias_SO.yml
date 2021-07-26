@@ -9,7 +9,7 @@
   vars:
     VMS:
        - HOSTNAME: test_1                                            # Nombre de Serviodor 2
-         TEMPLATE: Teplate_windows_2016
+         TEMPLATE: Template_Suse_12_sp3
          DISK: 18
          RAM: 2048
          CPU: 2
