@@ -36,8 +36,7 @@
           ip: '{{ IP }}'                                               # Dirección IP a asignar    
           netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
           gateway: '{{ GW }}'                                          # Gateway a asignar
-          dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
-          - 8.8.8.8
+          dns_servers: '{{ DNS }}'                                                # Dirección (es) IP de los DNS a asignar
           device_type: vmxnet3                                         #Tipo de Interfaz de Red a asignar
           start_connected: True
         state: poweredon                                               # Estado del Servidor luego del despliegue
