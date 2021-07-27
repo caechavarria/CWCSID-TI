@@ -10,6 +10,7 @@
 ############################################ 
 - hosts: all
   vars:
+    ansible_python_interpreter: /usr/bin/python3
     host_key_checking: false
   tasks:
    - name: Add a user linux                                    # Creacion Ususrio Linux
