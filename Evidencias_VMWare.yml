@@ -5,7 +5,7 @@
 # Compañía: CWC                           #  
 # Plataforma: VMWare                      #
 ###########################################
-# Creaciond e evidencia anivel de Vmware  # 
+# Creacion de evidencia a nivel de Vmware # 
 ###########################################
 - hosts: all
   tasks:
