@@ -13,10 +13,10 @@
   tasks:
     - name: Add Portgroup with Promiscuous
       vmware_portgroup:
-        hostname: "10.215.99.55"                      # IP del vCenter
-        username: "administrator@vsphere.local"       # Usuario de vCenter
-        password: "Lab2021*"                          # Password de vCenter
-        esxi_hostname: '10.215.99.60'                 # IP del esx
+        hostname: "{{ VCENTER }}"                     # IP del vCenter
+        username: "{{ USER_VCENTER }}"                # Usuario de vCenter
+        password: "{{ CONTRASEÑA }}"                  # Password de vCenter
+        esxi_hostname: "{{ ESXI_HOSTNAME }}"          # IP del esx
         switch_name: "{{ vswitch_name }}"             # Nombre Vswicht donde va quedar el Portgroup
         portgroup_name: "{{ portgroup_name }}"        # Nombre de PortGroup a visualizar en vmware
         vlan_id: "{{ vlan_id }}"                      # Nmbre o  numero  de la Vlan a crear
