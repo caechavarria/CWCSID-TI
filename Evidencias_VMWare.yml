@@ -2,8 +2,10 @@
 ######EVIDENCIAS DE VMWARE 3 ARCHIVOS #####
 # Elaborado por: SID - Implementacion     #                              
 # Fecha: 09 Julio de 2021                 #
-# Compañía: WCW                           #  
+# Compañía: CWC                           #  
 # Plataforma: VMWare                      #
+###########################################
+# Creaciond e evidencia anivel de Vmware  # 
 ###########################################
 - hosts: all
   tasks:
@@ -15,6 +17,6 @@
   #  shell: sleep 10
   
   - name: Ejecutar Evidencias de Vmware                                               
-    shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1                                # Se ejecuta en e servidor de ansible CENTOS para que tome evidencia a nivel vmware
+    shell: /usr/bin/pwsh /etc/ansible/Evidencias.ps1                                
     register: result
   - debug: var=result.stdout_lines
