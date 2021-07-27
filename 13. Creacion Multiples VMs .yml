@@ -7,7 +7,7 @@
 ############################################
 # Este playbook crea 2 o  mas VMs con sus  #
 # respectiva varibles Memoria Disco VCPU   #
-# en forma plana                           #
+# en forma plano                           #
 ############################################
   connection: local
   vars:
