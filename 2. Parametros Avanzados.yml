@@ -9,15 +9,15 @@
   connection: local
   tasks:
     - vmware_guest:                                                    # Modulo de Vmware
-        hostname: 10.215.99.55                                         # IP del vCenter
-        username: 'administrator@vsphere.local'                        # Usuario de vCenter
-        password: 'Lab2021*'                                           # Password de vCenter
+        hostname: "{{ VCENTER }}"                                      # IP del vCenter
+        username: "{{ USER_VCENTER }}"                                 # Usuario de vCenter
+        password: "{{ CONTRASEÑA }}"                                   # Password de vCenter
         validate_certs: False
         name: "{{ VM }}"                                               # Nombre como se visualizará en el vCenter
-        datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
-        cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
+        datacenter: "{{ DATACENTER }}"                                 # Nombre del Datacenter donde se va a desplegar
+        cluster: "{{ CLUSETER }}"                                      # Nombre del Cluster donde se va a desplegar
         folder: "{{ folder }}"                                         # Nombre del folder donde se va a desplegar
-        customvalues:                                                  # Atributos a Modificar  
+        customvalues:                                                  # Parametros avanzados de Vmware VM
         - key: "RemoteDisplay.maxConnections" 
           value: "3"
         - key: "isolation.tools.copy.disable"
