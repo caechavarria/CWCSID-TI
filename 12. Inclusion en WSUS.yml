@@ -1,10 +1,13 @@
 ---
-######CONFIGURACION WSUS PARA WINDOWS######
-# Elaborado por: SID - Implementacion     #                              
-# Fecha: 09 Julio de 2021                 #
-# Compañía: WCW                           #  
-# Plataforma: WINDOWS                     #
-###########################################
+######CONFIGURACION WSUS PARA WINDOWS#######
+# Elaborado por: SID - Implementacion      #                              
+# Fecha: 09 Julio de 2021                  #
+# Compañía: WCW                            #  
+# Plataforma: WINDOWS                      #
+############################################
+# Registro al WSUS del respectivo DC donde #
+# se encuentra la VM                       #        
+############################################
 - hosts: all
   tasks:
   - name: WSUS                                                          # Creacion y Modificicacion llaves de Regristor WSUS
