@@ -8,7 +8,7 @@
 - name: evidencia
   hosts: all
   tasks:
-    - name: nombre servidor - hostname                                   
+    - name: nombre VM - hostname                                   
       shell: hostname > /tmp/VM.txt                                   # Crea archivo VM.txt          
       register: out
     - debug: var=out.stdout_lines
