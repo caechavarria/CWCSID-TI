@@ -5,6 +5,10 @@
 # Compañía: WCW                           #  
 # Plataforma: WINDOWS                     #
 ###########################################
+# Este playbook utiliza un repositorio de #
+# https://chocolatey.org/ para instalcion #
+# en Plataforma Windows                   #
+###########################################
 - hosts: all  
   gather_facts: false
   tasks:
