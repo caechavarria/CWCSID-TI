@@ -10,11 +10,11 @@
   tasks:
   - name: Toma snap
     vmware_guest_snapshot:                       # Moduo toma de Snapshot            
-      hostname: 10.215.99.55                     # IP del vCenter
-      username: administrator@vsphere.local      # Usuario de vCenter
-      password: Lab2021*                         # Password de vCenter
+      hostname: "{{ VCENTER }}"                  # IP del vCenter
+      username: "{{ USER_VCENTER }}"             # Usuario de vCenter
+      password: "{{ CONTRASEÑA }}"               # Password de vCenter
       validate_certs: False
-      datacenter: CURANSIBLEDCLAB01              # Nombre del Datacenter donde se va a desplegar  
+      datacenter: "{{ DATACENTER }}"             # Nombre del Datacenter donde se va a desplegar  
       folder: /VMs-Windows/                      # Nombre del folder donde se va a ejecutar
       name: "{{ item }}"                         # Nombre del Servidopr a toamar el snap                       
       state: present                             # Toma de Snap 
@@ -27,11 +27,11 @@
   
   - name: Remove snpa  
     vmware_guest_snapshot:                       # Moduo toma de Snapshot  
-      hostname: 10.215.99.55                     # IP del vCenter
-      username: administrator@vsphere.local      # Usuario de vCenter    
-      password: Lab2021*                         # Password de vCenter 
+      hostname: "{{ VCENTER }}"                  # IP del vCenter
+      username: "{{ USER_VCENTER }}"             # Usuario de vCenter
+      password: "{{ CONTRASEÑA }}"               # Password de vCenter
       validate_certs: False
-      datacenter: CURANSIBLEDCLAB01              # Nombre del Datacenter donde se va a desplegar 
+      datacenter: "{{ DATACENTER }}"             # Nombre del Datacenter donde se va a desplegar 
       folder: /VMs-Windows/                      # Nombre del folder donde se va a ejecuta 
       name: "{{ item }}"                         # Nombre del Servidopr donde va a eliminar el snap      
       state: absent                              # Eliminacion de Snap
