@@ -3,12 +3,16 @@
 # Elaborado por: SID - Implementacion      #                              
 # Fecha: 09 Julio de 2021                  #
 # Compañía: WCW                            #  
-# Plataforma: LINUX                        #
+# Plataforma: Sistema Operativo            #
+############################################
+# Este playbook crea 2 o  mas VMs con sus  #
+# respectiva varibles Memoria Disco VCPU   #
+# en forma plana                           #
 ############################################
   connection: local
   vars:
     VMS:
-       - HOSTNAME: test_1                                            # Nombre de Serviodor 2
+       - HOSTNAME: test_1                                              # Nombre de Serviodor 2
          TEMPLATE: Template_Suse_12_sp3
          DISK: 18
          RAM: 2048
