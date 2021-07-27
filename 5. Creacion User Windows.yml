@@ -8,7 +8,6 @@
 # Este playbook crea usuario en plataforma #
 # Windows                                  #
 ############################################
-
 - name: Add a user
   hosts: all
   gather_facts: false
