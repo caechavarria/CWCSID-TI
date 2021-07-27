@@ -26,7 +26,7 @@
         disk:
         - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco del Sistema Operativo
           type: thin                                                   # Formato del disco thin, thick o eagerzeroedthick 
-          datastore: 'Management'                                      # Nombre del Datastore donde se va a desplegar
+          datastore: '{{ DS }}'                                       # Nombre del Datastore donde se va a desplegar
         hardware:
           memory_mb: '{{ RAM | int * 1024 }}'                          # Cantidad de Memoria RAM a asignar
           num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
