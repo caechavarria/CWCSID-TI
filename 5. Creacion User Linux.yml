@@ -1,0 +1,20 @@
+---
+######### CREAION USUARIO SO LINUX #########
+# Elaborado por: SID - Implementacion      #                              
+# Fecha: 09 Julio de 2021                  #
+# Compañía: CWC                            #  
+# Plataforma: LINUX                        #
+############################################ 
+# este playbook crea usuario en plataforma #
+# LINUX                                    # 
+############################################ 
+- hosts: all
+  vars:
+    host_key_checking: false
+  tasks:
+   - name: Add a user linux                                    # Creacion Ususrio Linux
+     user:
+       name:  "{{ USER_NAME }}"                                # Nombre de ususario
+       password: "{{ 'PASSWORD' | password_hash('sha512') }}"  # Contraseña a asiganar 
+       shell: /bin/bash
+...
