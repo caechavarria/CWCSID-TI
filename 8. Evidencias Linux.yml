@@ -114,15 +114,15 @@
       register: out
     - debug: var=out.stdout_lines
     
-    - name: yum history 
-      shell: echo -e "\n###YUMHISTORY###" >> /tmp/Evidencias.txt      # Agrega linea n###YUMHISTORY### 
-      register: out
-    - debug: var=out.stdout_lines
+    #- name: yum history 
+    #  shell: echo -e "\n###YUMHISTORY###" >> /tmp/Evidencias.txt      # Agrega linea n###YUMHISTORY### 
+     # register: out
+    #- debug: var=out.stdout_lines
                     
-    - name: Ultimas actulizaciones - yum history                      # Agrega resultado yum history al archivo                  
-      shell: yum history >> /tmp/Evidencias.txt                       # No funciona para SUSE      
-      register: out
-    - debug: var=out.stdout_lines
+    #- name: Ultimas actulizaciones - yum history                      # Agrega resultado yum history al archivo                  
+    #  shell: yum history >> /tmp/Evidencias.txt                       # No funciona para SUSE      
+    #  register: out
+    #- debug: var=out.stdout_lines
     
     - name: Messages_Log 
       shell: echo -e "\n###LOGMESSENGER###" >> /tmp/Evidencias.txt    # Agrega linea ###LOGMESSENGER### 
