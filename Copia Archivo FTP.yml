@@ -11,8 +11,7 @@
     - name: Copia - hostname                                   
       shell: sftp -i /etc/ansible/ftp_evidencias  evidencias@s-2691eeed50aa4b6db.server.transfer.us-east-1.amazonaws.com          
       register: out
-    - debug: var=out.stdout_lines
-                                   
+                                       
       shell: put /tmp/LatesEventssuse01.csv
       register: out
-    - debug: var=out.stdout_lines
+      debug: var=out.stdout_lines
