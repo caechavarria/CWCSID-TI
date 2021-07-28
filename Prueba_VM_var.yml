@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars: 
-     file: variables.yml
+     files: variables.yml
   connection: local
   tasks:
     - vmware_guest:
