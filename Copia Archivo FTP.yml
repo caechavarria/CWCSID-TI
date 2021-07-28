@@ -1,0 +1,18 @@
+---
+#########Copia Archivo Evidencias#########
+# Elaborado por: SID - Implementacion    #                              
+# Fecha: 09 Julio de 2021                #
+# Compañía: WCW                          #  
+# Plataforma: LINUX                      #
+##########################################
+- name: evidencia
+  hosts: all
+  tasks:
+    - name: Copia - hostname                                   
+      shell: sftp -i /etc/ansible/ftp_evidencias  evidencias@s-2691eeed50aa4b6db.server.transfer.us-east-1.amazonaws.com          
+      register: out
+    - debug: var=out.stdout_lines
+                                   
+      shell: put /tmp/LatesEventssuse01.csv
+      register: out
+    - debug: var=out.stdout_lines
