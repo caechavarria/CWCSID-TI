@@ -1,7 +1,9 @@
 ---
 - hosts: all
-  vars_files: 
-    - variables.yml
+  vars:
+    - vcenter: '10.215.99.55'                                      # IP del vCente
+    - username: 'administrator@vsphere.local'                        # Usuario de vCenter
+    - password: 'Lab2021*'                                          # Password de vCenter
   connection: local
   tasks:
     - vmware_guest:
