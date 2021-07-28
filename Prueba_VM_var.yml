@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  vars: 
+  include_vars: 
      file: variables.yml
   connection: local
   tasks:
