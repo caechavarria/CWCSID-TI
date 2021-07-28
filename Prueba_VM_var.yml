@@ -32,8 +32,8 @@
           start_connected: True
         state: poweredon                                               # Estado del Servidor luego del despliegue
         wait_for_ip_address: yes   
-      with_items:                                                      # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
-         - 1
+      #with_items:                                                      # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
+      #   - 1
          # - 2
          #- 3
 ...
