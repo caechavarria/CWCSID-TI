@@ -5,7 +5,7 @@
   connection: local
   tasks:
     - vmware_guest:
-        hostname: "{{ vcenter }}                                    # IP del vCenter
+        hostname: "{{ vcenter }}"                                    # IP del vCenter
         username: username                                          # Usuario de vCenter
         password: password                                          # Password de vCenter
         validate_certs: False
