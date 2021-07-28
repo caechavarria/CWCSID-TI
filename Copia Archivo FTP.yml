@@ -4,8 +4,7 @@
   tasks:
     - name: Copia FTP
       shell: | 
-             sftp -i /etc/ansible/ftp_evidencias  evidencias@s-2691eeed50aa4b6db.server.transfer.us-east-1.amazonaws.com <<EOF
-             cd /cechavarria
+             sftp -i /etc/ansible/ftp_evidencias  evidencias@s-2691eeed50aa4b6db.server.transfer.us-east-1.amazonaws.com:cechavarria <<EOF
              put /tmp/*.csv
              exit
              EOF
