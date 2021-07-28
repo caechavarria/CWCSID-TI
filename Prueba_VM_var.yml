@@ -2,7 +2,7 @@
 - hosts: all
   vars_files: 
   - variables.yml
-  #connection: local
+  connection: local
   tasks:
     - vmware_guest:
         hostname: vcenter                            # IP del vCenter
