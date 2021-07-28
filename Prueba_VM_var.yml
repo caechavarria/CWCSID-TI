@@ -9,7 +9,7 @@
         username: username                                          # Usuario de vCenter
         password: password                                          # Password de vCenter
         validate_certs: False
-        name: "{{ HOSTNAME }}"                                         # Nombre de VM y de como se visualizará en el vCenter
+        name: "{{ nombre }}"                                         # Nombre de VM y de como se visualizará en el vCenter
         template: '{{ SO }}'                                           # Nombre de la Plantilla en el vCenter
         datacenter: "{{ DATACENTER }}"                                 # Nombre del Datacenter donde se va a desplegar
         cluster: "{{ CLUSETER }}"                                      # Nombre del Cluster donde se va a desplegar
