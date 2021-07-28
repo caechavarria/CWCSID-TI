@@ -1,21 +1,12 @@
 ---
-####### CREACION USUARIO SO WINDOWS #######
-# Elaborado por: SID - Implementacion     #                              
-# Fecha: 09 Julio de 2021                 #
-# Compañía: WCW                           #  
-# Plataforma: VMWARE                      #
-###########################################
-# Este play book permite el despliegue de #
-# una VM con un Sitem aoperativo Linus o  #
-# desde una platilla de VMWARE            #  
-###########################################
 - hosts: all
+  include_vars: variables.yml
   connection: local
   tasks:
     - vmware_guest:
-        hostname: "{{ VCENTER }}"                                      # IP del vCenter
-        username: "{{ USER_VCENTER }}"                                 # Usuario de vCenter
-        password: "{{ CONTRASEÑA }}"                                   # Password de vCenter
+        hostname: hostname                                    # IP del vCenter
+        username: username                                 # Usuario de vCenter
+        password: password                                   # Password de vCenter
         validate_certs: False
         name: "{{ HOSTNAME }}"                                         # Nombre de VM y de como se visualizará en el vCenter
         template: '{{ SO }}'                                           # Nombre de la Plantilla en el vCenter
