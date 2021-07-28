@@ -9,3 +9,4 @@
   tasks:
     - name: Copia FTP
       shell: sftp -i /etc/ansible/ftp_evidencias  evidencias@s-2691eeed50aa4b6db.server.transfer.us-east-1.amazonaws.com
+    - debug: var=result.stdout_lines
