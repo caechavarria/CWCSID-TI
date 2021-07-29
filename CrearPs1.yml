@@ -6,4 +6,64 @@
       path: "/tmp/test.ps1"
       state: touch
     become: yes
+    
+  - name: discos df -h-
+    shell: echo -e "$Password = ConvertTo-SecureString "Lab2021*" -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential ($User,$Password)
+
+$vCenter='10.215.99.55'
+connect-viserver $vCenter -Credential $Cred   #credecinales del vcenter
+$server = Get-Content \etc\ansible\VM.txt
+$vm = Get-VM -Name $server
+#$vm = Get-VM -Name linux01
+$vNicInfo = Get-VM -Name $vm | Get-NetworkAdapter
+$vNics = foreach ($vNic in $VnicInfo) {"{0}={1}"-f ($vnic.Name.split("")[2]), ($vNic.Type)}
+$vnic = $vNics -join (", ")
+$CdRoomPath= Get-vm -Name $vm | Get-cddrive | select Isopath
+$CdRoomConn= Get-vm -Name $vm | Get-cddrive | select connectionstate
+$VMview=get-view -viewtype VirtualMachine -filter @{"Name" = "^$($Vm)$"}
+$Grid = New-Object PSObject
+$Grid | add-member -MemberType NoteProperty -Name "VM Name" -Value $VMview.Name
+$Grid | add-member -MemberType NoteProperty -Name "VM Hostname" -Value $VMview.Guest.HostName
+$Grid | add-member -MemberType NoteProperty -Name "VM IP" -Value $VMview.Guest.IpAddress
+$Grid | add-member -MemberType NoteProperty -Name "VM PowerState" -Value $VMview.summary.runtime.powerstate
+$Grid | add-member -MemberType NoteProperty -Name "VM OverallStatus" -Value $VMview.summary.Overallstatus
+$Grid | add-member -MemberType NoteProperty -Name "VM Memory Size (MB)" -Value $VMview.summary.config.MemorySizeMB
+$Grid | add-member -MemberType NoteProperty -Name "VM vCPUs #" -Value $VMview.summary.config.NumCpu
+$Grid | add-member -MemberType NoteProperty -Name "VM vNICs #" -Value $VMview.summary.config.NumEthernetCards
+$Grid | add-member -MemberType NoteProperty -Name "VM vDisks #" -Value $VMview.summary.config.NumVirtualDisks
+$Grid | add-member -MemberType NoteProperty -Name "VM vNICs" -Value $vNic
+$Grid | add-member -MemberType NoteProperty -Name "VM Folder" -Value $Folder
+$Grid | add-member -MemberType NoteProperty -Name "VM CdRoom Path" -Value $CdRoomPath
+$Grid | add-member -MemberType NoteProperty -Name "VM CdRoom Connection" -Value $CdRoomConn
+$Grid | add-member -MemberType NoteProperty -Name "VM Installed OS" -Value $VMview.summary.Guest.GuestFullName
+$Grid | add-member -MemberType NoteProperty -Name "VM Setting OS" -Value $VMview.summary.config.GuestFullName
+$Grid | add-member -MemberType NoteProperty -Name "VM VMtools Status" -Value $VMview.Guest.ToolsStatus
+$Grid | add-member -MemberType NoteProperty -Name "VM VMtools Version" -Value $VMview.Guest.ToolsVersionStatus
+$Grid | add-member -MemberType NoteProperty -Name "VM VMtools Running" -Value $VMview.Guest.ToolsRunningStatus
+$Grid | add-member -MemberType NoteProperty -Name "VM VMtools Version Number" -Value $VMview.Guest.ToolsVersion
+$Grid | add-member -MemberType NoteProperty -Name "VM Machine Version" -Value $VMview.config.version
+$Grid | add-member -MemberType NoteProperty -Name "VM Memory HotAdd" -Value $VMview.config.MemoryHotAddEnabled
+$Grid | add-member -MemberType NoteProperty -Name "VM CPU HotAdd" -Value $VMview.config.CpuHotAddEnabled
+$Grid | add-member -MemberType NoteProperty -Name "VM + Advanced Parameters" -Value "Check AdvParameters$vm_$vm$nowcsv.csv"
+$Grid | add-member -MemberType NoteProperty -Name "VM .vmx Path" -Value $VMview.config.files.vmpathname
+$Grid | add-member -MemberType NoteProperty -Name "VM Enable Logging" -Value $VMview.config.flags.enablelogging
+$Grid | add-member -MemberType NoteProperty -Name "VM Memory Reservation" -Value $VMview.config.memoryallocation.reservation
+$Grid | add-member -MemberType NoteProperty -Name "VM Memory Limit" -Value $VMview.config.memoryallocation.Limit
+$Grid | add-member -MemberType NoteProperty -Name "VM Memory Shares" -Value $VMview.config.memoryallocation.shares.level
+$Grid | add-member -MemberType NoteProperty -Name "VM CPU Reservation" -Value $VMview.config.cpuallocation.reservation
+$Grid | add-member -MemberType NoteProperty -Name "VM CPU Limit" -Value $VMview.config.cpuallocation.Limit
+$Grid | add-member -MemberType NoteProperty -Name "VM CPU Shares" -Value $VMview.config.cpuallocation.shares.level
+$Grid | add-member -MemberType NoteProperty -Name "VM UUID" -Value $VMview.summary.config.uuid
+$Grid | add-member -MemberType NoteProperty -Name "AlarmActionsEnabled" -Value $VMview.AlarmActionsEnabled
+$Grid | add-member -MemberType NoteProperty -Name "Time Stamp" -Value $now
+
+$Results=$Grid
+
+$Results |export-csv "\tmp\SummaryEvidence$vm.csv" -notypeinformation
+
+Get-VM -Name $vm | Get-VIEvent -MaxSamples 30 | Select CreatedTime ,UserName,FullFormattedMessage | Export-CSV "/tmp/LatesEvents$vm.csv" -notypeinformation
+" >> /tmp/test.ps1
+    register: out
+  - debug: var=out.stdout_lines
 ...
