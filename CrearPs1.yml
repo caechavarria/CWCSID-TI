@@ -3,5 +3,7 @@
   tasks:
   - name: Creating file
     file:
-      path: /tmp
-      state: touch tes.ps1
+      path: "/tmp/test.ps1
+      state: touch
+    become: yes
+...
