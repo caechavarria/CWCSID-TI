@@ -1,14 +1,11 @@
 ---
 - hosts: all
-  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python2
+    host_key_checking: false
+    become: yes
   tasks:
-  - name: Update apt cache
-    apt:
-      update_cache: yes
-      cache_valid_time: 3600
-
   - group: name=sudo state=present
-
   - name: Add deployer user and add it to sudo
     user: name=deployer
           state=present
