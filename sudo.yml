@@ -9,10 +9,9 @@
           group=primary-group
           groups="sudo"
           password=Colobia123 | password_hash('sha512') 
-          comment="Comment"
- 
+          comment="Comment" 
   #tasks:
-  #- group: name=sudo state=present
+  - group: name=sudo state=present
   #- name: Add deployer user and add it to sudo
   #  user: name=deployer
    #       state=present
