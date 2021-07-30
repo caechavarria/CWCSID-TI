@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - group: name=sudo state=present
+
+  - name: Add deployer user and add it to sudo
+    user: name=deployer
+          state=present
+          createhome=yes
+    become: yes
+    become_method: "sudo"
