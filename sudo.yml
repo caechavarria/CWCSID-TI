@@ -3,12 +3,19 @@
   vars:
     ansible_python_interpreter: /usr/bin/python2
     host_key_checking: false
- 
-  tasks:
-  - group: name=sudo state=present
-  - name: Add deployer user and add it to sudo
-    user: name=deployer
+  - name: create a new user
+    user: name=tito
           state=present
-          createhome=yes
-    become: yes
-    become_method: "sudo"
+          group=primary-group
+          groups="sudo"
+          password=Colobia123 | password_hash('sha512') 
+          comment="Comment"
+ 
+  #tasks:
+  #- group: name=sudo state=present
+  #- name: Add deployer user and add it to sudo
+  #  user: name=deployer
+   #       state=present
+    #      createhome=yes
+   # become: yes
+   # become_method: "sudo"
