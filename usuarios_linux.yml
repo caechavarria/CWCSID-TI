@@ -60,8 +60,9 @@
        validate: '/usr/sbin/visudo -cf %s'
      tags:
        - sudo
-	   
+          
    - name: Restart sshd
      service:
        name: sshd
        state: restarted
+...
