@@ -1,0 +1,67 @@
+---
+- hosts: all
+  remote_user: root
+# inactivar cuando no se use root para la conexion
+  #become: yes
+  #become_flags: "-H -S"
+  tasks:
+  
+   - name: Crear grupo
+     group:
+       name: '{{ item }}'
+       state: present
+     with_items:
+       - cwc_admin
+       - cwc_user
+ 
+   - name: Crear Home
+     file:
+       path: '/home/{{ item }}'
+       state: directory
+       recurse: yes
+	   with_items:
+       - cwbsid
+	     - cwbcsc
+       - usrcustomer 
+     
+   - name: Crear usuario 
+     user:
+       name: '{{ item.user }}'
+       comment: '{{ item.comment }}'
+       group: '{{ item.group }}'
+       shell: /bin/bash
+       password: '{{ 'PASSWORD' | password_hash('sha512') }}'
+       #update_password: always
+       state: present
+     with_items:
+       - { user: cwbsid, group: cwc_admin, comment: 'usuario SID' }
+	     - { user: cwbcsc, group: cwc_admin, comment: 'usuario CSC' }
+       - { user: usrcustomer, group: cwc_user, comment: 'usuario cliente' }  
+ 
+    
+   - name: Modificar Permisos Home
+     file:
+       path: '/home/{{ item.user }}'
+       owner: '{{ item.user }}'
+       group: '{{ item.group }}'
+       mode: 0750
+     with_items:
+       - { user: cwbsid, group: cwc_admin }
+	     - { user: cwbcsc, group: cwc_admin }
+       - { user: usrcustomer, group: cwc_user }  
+ 
+   - name: Agregando regla de sudo para grupo setiadm
+     lineinfile:
+       path: /etc/sudoers
+       state: present
+       insertafter: '^root ALL='
+       line: '%cwc_admin ALL= NOPASSWD: ALL, !CMD_ADMSO_POWER, NOEXEC: CMD_ADMSO_NOEXEC'
+       backup: yes
+       validate: '/usr/sbin/visudo -cf %s'
+     tags:
+       - sudo
+	   
+   - name: Restart sshd
+     service:
+       name: sshd
+       state: restarted
