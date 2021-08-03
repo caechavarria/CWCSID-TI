@@ -19,9 +19,9 @@
        path: '/home/{{ item }}'
        state: directory
        recurse: yes
-	   with_items:
+      with_items:
        - cwbsid
-	     - cwbcsc
+       - cwbcsc
        - usrcustomer 
      
    - name: Crear usuario 
@@ -35,7 +35,7 @@
        state: present
      with_items:
        - { user: cwbsid, group: cwc_admin, comment: 'usuario SID' }
-	     - { user: cwbcsc, group: cwc_admin, comment: 'usuario CSC' }
+       - { user: cwbcsc, group: cwc_admin, comment: 'usuario CSC' }
        - { user: usrcustomer, group: cwc_user, comment: 'usuario cliente' }  
  
     
@@ -47,7 +47,7 @@
        mode: 0750
      with_items:
        - { user: cwbsid, group: cwc_admin }
-	     - { user: cwbcsc, group: cwc_admin }
+       - { user: cwbcsc, group: cwc_admin }
        - { user: usrcustomer, group: cwc_user }  
  
    - name: Agregando regla de sudo para grupo setiadm
