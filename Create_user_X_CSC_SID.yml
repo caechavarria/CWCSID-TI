@@ -1,0 +1,41 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+     users:
+     - username: "cwbsid"
+       uid: "123"
+       nombre: "SID_cwbsid"
+       contrasena: "Colombia123"
+     - username: "cwbcsc"
+       uid: "124"
+       nombre: "SID_cwbcsc"
+       contrasena: "Colombia123"
+
+  tasks:
+  - name: "Create SIC group"
+    group:
+        name: "admin"
+        state: present
+  - name: "Create user accounts and users to group"
+    user:
+        name: "{{ item.username }}"
+        state: present
+        group: "admin"
+        uid: "{{ item.uid }}"
+        comment: "{{ item.nombre }}"
+        password: "{{ item.contrasena | password_hash('sha512') }}"
+        shell: "/bin/bash"
+    with_items: "{{ users }}"
+  
+  - name: "Set password expiration days limit"
+    raw: "chage -M 365 {{ item.username }}"
+    with_items: "{{ users }}" 
+
+  - name: "sudo"
+    lineinfile:
+      dest: "/etc/sudoers"
+      state: "present"
+      regexp: "^%admin"
+      line: "%admin ALL=(ALL) NOPASSWD: ALL"
