@@ -5,18 +5,21 @@
 # Compañía: WCW                           #  
 # Plataforma: LINUX                       #
 ###########################################
-- hosts: all
+###########################################
+- hosts: localhost
   connection: local
+  gather_facts: false
+  vars:     
   tasks:
     - vmware_guest:                                                    # Modulo de Vmware
         hostname: "{{ VCENTER }}"                                      # IP del vCenter
-        username: "{{ USER_VCENTER }}"                                 # Usuario de vCenter
-        password: "{{ CONTRASEÑA }}"                                   # Password de vCenter
+        username: 'carlos.echavarria@cscsmart.com'                     # Usuario de vCenter
+        password: 'S0p0rte123*.'                                       # Password de vCenter
         validate_certs: False
         name: "{{ VM }}"                                               # Nombre como se visualizará en el vCenter
         datacenter: "{{ DATACENTER }}"                                 # Nombre del Datacenter donde se va a desplegar
-        cluster: "{{ CLUSETER }}"                                      # Nombre del Cluster donde se va a desplegar
-        folder: "{{ folder }}"                                         # Nombre del folder donde se va a desplegar
+        #cluster: "{{ CLUSTER }}"                                      # Nombre del Cluster donde se va a desplegar
+        #folder: "{{ folder }}"                                         # Nombre del folder donde se va a desplegar
         customvalues:                                                  # Parametros avanzados de Vmware VM
         - key: "RemoteDisplay.maxConnections" 
           value: "3"
@@ -62,7 +65,7 @@
           value: "False"
         - key: "snapshot.redoNotWithParent"
           value: "True"
-        state: poweredon                                               # Estado del Servidor luego del despliegue
+        state: present                                              # Estado del Servidor luego del despliegue
         wait_for_ip_address: yes        
       delegate_to: localhost
 ...
